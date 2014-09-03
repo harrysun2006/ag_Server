@@ -1,0 +1,540 @@
+<?xml version="1.0"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+ 	<!-- datasource -->
+ 	<bean id="viewbarDataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName">
+            <value>java:comp/env/jdbc/ViewbarPool</value>
+        </property>
+    </bean>
+	
+	<!-- Hibernate sessionFactory -->
+	<bean id="viewbarSessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref local="viewbarDataSource"/>
+		</property>
+		<property name="configLocation">
+			<value>classpath:/hibernate-viewbar.cfg.xml</value>
+		</property>
+		<property name="lobHandler">
+			<ref bean="defaultLobHandler"/>
+		</property>
+	</bean>
+	
+	<!-- Transaction manager  -->
+	<bean id="viewbarTransactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory">
+			<ref local="viewbarSessionFactory"/>
+		</property>
+	</bean>
+
+	<!--Viewbar Dao -->
+	<bean id="com.agloco.dao.hibernate.ViewbarDAOHibernate" class="com.agloco.dao.hibernate.ViewbarDAOHibernate">
+		<property name="sessionFactory">
+			<ref bean="viewbarSessionFactory" />
+		</property>
+	</bean>    
+	<bean id="com.agloco.dao.util.ViewbarDAOUtil" class="com.agloco.dao.util.ViewbarDAOUtil">
+		<property name="viewbarDAO">
+			<ref bean="com.agloco.dao.hibernate.ViewbarDAOHibernate" />
+		</property>
+	</bean>
+	    
+	<!-- Viewbar service -->    
+	<bean id="com.agloco.service.impl.ViewbarServiceImpl" class="com.agloco.service.impl.ViewbarServiceImpl" />
+	<bean id="com.agloco.service.ViewbarService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager">
+			<ref bean="viewbarTransactionManager" />
+		</property>
+		<property name="target">
+			<ref bean="com.agloco.service.impl.ViewbarServiceImpl" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+    
+    <bean id="com.agloco.service.util.ViewbarServiceUtil" class="com.agloco.service.util.ViewbarServiceUtil">
+		<property name="viewbarService">
+			<ref bean="com.agloco.service.ViewbarService" />
+		</property>
+	</bean>  
+	
+	<!--Files Dao -->
+	<bean id="com.agloco.dao.hibernate.FilesDAOHibernate" class="com.agloco.dao.hibernate.FilesDAOHibernate">
+		<property name="sessionFactory">
+			<ref bean="viewbarSessionFactory" />
+		</property>
+	</bean>    
+	<bean id="com.agloco.dao.util.FilesDAOUtil" class="com.agloco.dao.util.FilesDAOUtil">
+		<property name="filesDAO">
+			<ref bean="com.agloco.dao.hibernate.FilesDAOHibernate" />
+		</property>
+	</bean>
+	    
+	<!-- Files service -->    
+	<bean id="com.agloco.service.impl.FilesServiceImpl" class="com.agloco.service.impl.FilesServiceImpl" />
+	<bean id="com.agloco.service.FilesService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager">
+			<ref bean="viewbarTransactionManager" />
+		</property>
+		<property name="target">
+			<ref bean="com.agloco.service.impl.FilesServiceImpl" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+    
+    <bean id="com.agloco.service.util.FilesServiceUtil" class="com.agloco.service.util.FilesServiceUtil">
+		<property name="filesService">
+			<ref bean="com.agloco.service.FilesService" />
+		</property>
+	</bean>  
+	
+	<!--MOption Dao -->
+	<bean id="com.agloco.dao.hibernate.MOptionDAOHibernate" class="com.agloco.dao.hibernate.MOptionDAOHibernate">
+		<property name="sessionFactory">
+			<ref bean="viewbarSessionFactory" />
+		</property>
+	</bean>    
+	<bean id="com.agloco.dao.util.MOptionDAOUtil" class="com.agloco.dao.util.MOptionDAOUtil">
+		<property name="moptionDAO">
+			<ref bean="com.agloco.dao.hibernate.MOptionDAOHibernate" />
+		</property>
+	</bean>
+	    
+	<!-- MOption service -->    
+	<bean id="com.agloco.service.impl.MOptionServiceImpl" class="com.agloco.service.impl.MOptionServiceImpl" />
+	<bean id="com.agloco.service.MOptionService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager">
+			<ref bean="viewbarTransactionManager" />
+		</property>
+		<property name="target">
+			<ref bean="com.agloco.service.impl.MOptionServiceImpl" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+    
+    <bean id="com.agloco.service.util.MOptionServiceUtil" class="com.agloco.service.util.MOptionServiceUtil">
+		<property name="moptionService">
+			<ref bean="com.agloco.service.MOptionService" />
+		</property>
+	</bean>  
+	<!--Favorite Dao -->
+	<bean id="com.agloco.dao.hibernate.FavoriteDAOHibernate" class="com.agloco.dao.hibernate.FavoriteDAOHibernate">
+		<property name="sessionFactory">
+			<ref bean="viewbarSessionFactory" />
+		</property>
+	</bean>    
+	<bean id="com.agloco.dao.util.FavoriteDAOUtil" class="com.agloco.dao.util.FavoriteDAOUtil">
+		<property name="favoriteDAO">
+			<ref bean="com.agloco.dao.hibernate.FavoriteDAOHibernate" />
+		</property>
+	</bean>
+	    
+	<!-- Favorite service -->    
+	<bean id="com.agloco.service.impl.FavoriteServiceImpl" class="com.agloco.service.impl.FavoriteServiceImpl" />
+	<bean id="com.agloco.service.FavoriteService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager">
+			<ref bean="viewbarTransactionManager" />
+		</property>
+		<property name="target">
+			<ref bean="com.agloco.service.impl.FavoriteServiceImpl" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+		<property name="postInterceptors">
+			<list>
+				<ref bean="clearCacheAdvisor" />
+			</list>
+		</property>
+	</bean>
+    
+    <bean id="com.agloco.service.util.FavoriteServiceUtil" class="com.agloco.service.util.FavoriteServiceUtil">
+		<property name="favoriteService">
+			<ref bean="com.agloco.service.FavoriteService" />
+		</property>
+	</bean>  
+	
+	<!--Rule Dao -->
+	<bean id="com.agloco.dao.hibernate.RuleDAOHibernate" class="com.agloco.dao.hibernate.RuleDAOHibernate">
+		<property name="sessionFactory">
+			<ref bean="viewbarSessionFactory" />
+		</property>
+	</bean>    
+	<bean id="com.agloco.dao.util.RuleDAOUtil" class="com.agloco.dao.util.RuleDAOUtil">
+		<property name="ruleDAO">
+			<ref bean="com.agloco.dao.hibernate.RuleDAOHibernate" />
+		</property>
+	</bean>
+	<!-- Rule service -->    
+	<bean id="com.agloco.service.impl.RuleServiceImpl" class="com.agloco.service.impl.RuleServiceImpl" />
+	<bean id="com.agloco.service.RuleService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager">
+			<ref bean="viewbarTransactionManager" />
+		</property>
+		<property name="target">
+			<ref bean="com.agloco.service.impl.RuleServiceImpl" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+    
+    <bean id="com.agloco.service.util.RuleServiceUtil" class="com.agloco.service.util.RuleServiceUtil">
+		<property name="ruleService">
+			<ref bean="com.agloco.service.RuleService" />
+		</property>
+	</bean> 
+
+	<!--Surf Track Dao -->
+	<bean id="com.agloco.dao.hibernate.SurfDAOHibernate" class="com.agloco.dao.hibernate.SurfDAOHibernate">
+		<property name="sessionFactory">
+			<ref bean="viewbarSessionFactory" />
+		</property>
+	</bean>    
+	<bean id="com.agloco.dao.util.SurfDAOUtil" class="com.agloco.dao.util.SurfDAOUtil">
+		<property name="surfDAO">
+			<ref bean="com.agloco.dao.hibernate.SurfDAOHibernate" />
+		</property>
+	</bean>
+	<!-- Surf Track service -->    
+	<bean id="com.agloco.service.impl.SurfServiceImpl" class="com.agloco.service.impl.SurfServiceImpl" />
+	<bean id="com.agloco.service.SurfService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager">
+			<ref bean="viewbarTransactionManager" />
+		</property>
+		<property name="target">
+			<ref bean="com.agloco.service.impl.SurfServiceImpl" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+    <bean id="com.agloco.service.util.SurfServiceUtil" class="com.agloco.service.util.SurfServiceUtil">
+		<property name="surfService">
+			<ref bean="com.agloco.service.SurfService" />
+		</property>
+	</bean> 
+	
+	<!--Advertise DAO -->
+	<bean id="com.agloco.dao.hibernate.AdvertiseDAOHibernate" class="com.agloco.dao.hibernate.AdvertiseDAOHibernate">
+		<property name="sessionFactory">
+			<ref bean="viewbarSessionFactory" />
+		</property>
+	</bean>    
+	<bean id="com.agloco.dao.util.AdvertiseDAOUtil" class="com.agloco.dao.util.AdvertiseDAOUtil">
+		<property name="advertiseDAO">
+			<ref bean="com.agloco.dao.hibernate.AdvertiseDAOHibernate" />
+		</property>
+	</bean>
+
+	<!-- Advertise service -->    
+	<bean id="com.agloco.service.impl.AdvertiseServiceImpl" class="com.agloco.service.impl.AdvertiseServiceImpl" />
+	<bean id="com.agloco.service.AdvertiseService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager">
+			<ref bean="viewbarTransactionManager" />
+		</property>
+		<property name="target">
+			<ref bean="com.agloco.service.impl.AdvertiseServiceImpl" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+    <bean id="com.agloco.service.util.AdvertiseServiceUtil" class="com.agloco.service.util.AdvertiseServiceUtil">
+		<property name="advertiseService">
+			<ref bean="com.agloco.service.AdvertiseService" />
+		</property>
+	</bean>
+	
+	<!--Search DAO -->
+	<bean id="com.agloco.dao.hibernate.SearchDAOHibernate" class="com.agloco.dao.hibernate.SearchDAOHibernate">
+		<property name="sessionFactory">
+			<ref bean="viewbarSessionFactory" />
+		</property>
+	</bean>    
+	<bean id="com.agloco.dao.util.SearchDAOUtil" class="com.agloco.dao.util.SearchDAOUtil">
+		<property name="searchDAO">
+			<ref bean="com.agloco.dao.hibernate.SearchDAOHibernate" />
+		</property>
+	</bean>
+	<!-- Search service -->    
+	<bean id="com.agloco.service.impl.SearchServiceImpl" class="com.agloco.service.impl.SearchServiceImpl" />
+	<bean id="com.agloco.service.SearchService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager">
+			<ref bean="viewbarTransactionManager" />
+		</property>
+		<property name="target">
+			<ref bean="com.agloco.service.impl.SearchServiceImpl" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+		<property name="postInterceptors">
+			<list>
+				<ref bean="clearCacheAdvisor" />
+			</list>
+		</property>
+	</bean>
+    <bean id="com.agloco.service.util.SearchServiceUtil" class="com.agloco.service.util.SearchServiceUtil">
+		<property name="searchService">
+			<ref bean="com.agloco.service.SearchService" />
+		</property>
+	</bean>
+
+	<!-- LogMessage dao -->
+	<bean id="com.agloco.dao.hibernate.LogMessageDaoHibernate" class="com.agloco.dao.hibernate.LogMessageDaoHibernate" lazy-init="true">
+		<property name="sessionFactory">
+			<ref bean="viewbarSessionFactory" />
+		</property>
+	</bean>
+	<bean id="com.agloco.dao.util.LogMessageDaoUtil" class="com.agloco.dao.util.LogMessageDaoUtil" lazy-init="true">
+		<property name="logMessageDao">
+			<ref bean="com.agloco.dao.hibernate.LogMessageDaoHibernate" />
+		</property>
+	</bean>
+	<!-- LogMessage service -->
+	<bean id="com.agloco.service.impl.LogMessageServiceImpl" class="com.agloco.service.impl.LogMessageServiceImpl" lazy-init="true"/>
+	<bean id="com.agloco.service.LogMessageService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean" lazy-init="true">
+		<property name="transactionManager">
+			<ref bean="viewbarTransactionManager" />
+		</property>
+		<property name="target">
+			<ref bean="com.agloco.service.impl.LogMessageServiceImpl" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<bean id="com.agloco.service.util.LogMessageServiceUtil" class="com.agloco.service.util.LogMessageServiceUtil" lazy-init="true">
+		<property name="logMessageService">
+			<ref bean="com.agloco.service.LogMessageService" />
+		</property>
+	</bean>
+	
+	<!-- LogMessage dao -->
+	<bean id="com.agloco.dao.hibernate.RollingDAOHibernate" class="com.agloco.dao.hibernate.RollingDAOHibernate" lazy-init="true">
+		<property name="sessionFactory">
+			<ref bean="viewbarSessionFactory" />
+		</property>
+	</bean>
+	<bean id="com.agloco.dao.util.RollingDAOUtil" class="com.agloco.dao.util.RollingDAOUtil" lazy-init="true">
+		<property name="rollingDao">
+			<ref bean="com.agloco.dao.hibernate.RollingDAOHibernate" />
+		</property>
+	</bean>
+	<!-- Rolling service -->
+	<bean id="com.agloco.service.impl.RollingServiceImpl" class="com.agloco.service.impl.RollingServiceImpl" lazy-init="true"/>
+	<bean id="com.agloco.service.RollingService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean" lazy-init="true">
+		<property name="transactionManager">
+			<ref bean="viewbarTransactionManager" />
+		</property>
+		<property name="target">
+			<ref bean="com.agloco.service.impl.RollingServiceImpl" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<bean id="com.agloco.service.util.RollingServiceUtil" class="com.agloco.service.util.RollingServiceUtil" lazy-init="true">
+		<property name="rollingService">
+			<ref bean="com.agloco.service.RollingService" />
+		</property>
+	</bean>
+	
+	<!-- session track dao-->
+	<bean id="com.agloco.dao.hibernate.SessionTrackDAOHibernate" class="com.agloco.dao.hibernate.SessionTrackDAOHibernate">
+		<property name="sessionFactory">
+			<ref bean="viewbarSessionFactory" />
+		</property>
+	</bean>    
+	<bean id="com.agloco.dao.util.SessionTrackDAOUtil" class="com.agloco.dao.util.SessionTrackDAOUtil">
+		<property name="sessionTrackDAO">
+			<ref bean="com.agloco.dao.hibernate.SessionTrackDAOHibernate" />
+		</property>
+	</bean>
+	<!-- session track service -->    
+	<bean id="com.agloco.service.impl.SessionTrackServiceImpl" class="com.agloco.service.impl.SessionTrackServiceImpl" />
+	<bean id="com.agloco.service.SessionTrackService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager">
+			<ref bean="viewbarTransactionManager" />
+		</property>
+		<property name="target">
+			<ref bean="com.agloco.service.impl.SessionTrackServiceImpl" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+    <bean id="com.agloco.service.util.SessionTrackServiceUtil" class="com.agloco.service.util.SessionTrackServiceUtil">
+		<property name="sessionTrackService">
+			<ref bean="com.agloco.service.SessionTrackService" />
+		</property>
+	</bean>
+	
+	<!-- Affiliate Dao -->
+	<bean id="com.agloco.dao.hibernate.AffiliateDAOHibernate" class="com.agloco.dao.hibernate.AffiliateDAOHibernate">
+		<property name="sessionFactory">
+			<ref bean="viewbarSessionFactory" />
+		</property>
+	</bean>
+	<bean id="com.agloco.dao.util.AffiliateDAOUtil" class="com.agloco.dao.util.AffiliateDAOUtil">
+		<property name="affiliateDAO">
+			<ref bean="com.agloco.dao.hibernate.AffiliateDAOHibernate"/>
+		</property>
+	</bean>
+	<!-- Affiliate Service -->
+	<bean id="com.agloco.service.impl.AffiliateServiceImpl" class="com.agloco.service.impl.AffiliateServiceImpl"/>
+	<bean id="com.agloco.service.AffiliateService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager">
+			<ref bean="viewbarTransactionManager" />
+		</property>
+		<property name="target">
+			<ref bean="com.agloco.service.impl.AffiliateServiceImpl" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+	<bean id="com.agloco.service.util.AffiliateServiceUtil" class="com.agloco.service.util.AffiliateServiceUtil">
+		<property name="affiliateService">
+			<ref bean="com.agloco.service.AffiliateService"/>
+		</property>	
+	</bean>
+	
+	<bean id="com.agloco.spring.advice.ClearCacheAdvice" class="com.agloco.spring.advice.ClearCacheAdvice"/>
+	<bean id="clearCacheAdvisor" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+	   <property name="advice" ref="com.agloco.spring.advice.ClearCacheAdvice" />
+	   <property name="patterns">
+	     <list>
+	       <value>.*createFavorite.*</value>
+	       <value>.*updateFavorite.*</value>
+	       <value>.*createSearchEngine.*</value>
+	       <value>.*deleteSearchEngine.*</value>
+	       <value>.*updateSearchEngine.*</value>
+	       <value>.*createTool.*</value>
+	       <value>.*deleteTool.*</value>
+	       <value>.*updateTool.*</value>
+	       <value>.*createToolsPath.*</value>
+	       <value>.*deleteToolsPath.*</value>
+	       <value>.*updateToolsPath.*</value>
+	     </list>
+	   </property>
+	</bean>
+	
+	<!--Tools DAO -->
+	<bean id="com.agloco.dao.hibernate.ToolsDAOHibernate" class="com.agloco.dao.hibernate.ToolsDAOHibernate">
+		<property name="sessionFactory">
+			<ref bean="viewbarSessionFactory" />
+		</property>
+	</bean>    
+	<bean id="com.agloco.dao.util.ToolsDAOUtil" class="com.agloco.dao.util.ToolsDAOUtil">
+		<property name="toolsDAO">
+			<ref bean="com.agloco.dao.hibernate.ToolsDAOHibernate" />
+		</property>
+	</bean>
+	<!-- Tools service -->    
+	<bean id="com.agloco.service.impl.ToolsServiceImpl" class="com.agloco.service.impl.ToolsServiceImpl" />
+	<bean id="com.agloco.service.ToolsService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager">
+			<ref bean="viewbarTransactionManager" />
+		</property>
+		<property name="target">
+			<ref bean="com.agloco.service.impl.ToolsServiceImpl" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+		<property name="postInterceptors">
+			<list>
+				<ref bean="clearCacheAdvisor" />
+			</list>
+		</property>
+	</bean>
+    <bean id="com.agloco.service.util.ToolsServiceUtil" class="com.agloco.service.util.ToolsServiceUtil">
+		<property name="toolsService">
+			<ref bean="com.agloco.service.ToolsService" />
+		</property>
+	</bean>
+	
+	<!--Config Dao -->
+	<bean id="com.agloco.dao.hibernate.ConfigDAOHibernate" class="com.agloco.dao.hibernate.ConfigDAOHibernate">
+		<property name="sessionFactory">
+			<ref bean="viewbarSessionFactory" />
+		</property>
+	</bean>    
+	<bean id="com.agloco.dao.util.ConfigDAOUtil" class="com.agloco.dao.util.ConfigDAOUtil">
+		<property name="configDAO">
+			<ref bean="com.agloco.dao.hibernate.ConfigDAOHibernate" />
+		</property>
+	</bean>
+	    
+	<!-- VBConfig service -->    
+	<bean id="com.agloco.service.impl.ConfigServiceImpl" class="com.agloco.service.impl.ConfigServiceImpl" />
+	<bean id="com.agloco.service.ConfigService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager">
+			<ref bean="viewbarTransactionManager" />
+		</property>
+		<property name="target">
+			<ref bean="com.agloco.service.impl.ConfigServiceImpl" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<bean id="com.agloco.service.util.ConfigServiceUtil" class="com.agloco.service.util.ConfigServiceUtil">
+		<property name="configService">
+			<ref bean="com.agloco.service.ConfigService" />
+		</property>
+	</bean>
+
+	<!--IP DAO -->
+	<bean id="com.agloco.dao.hibernate.IpCountryDAOHibernate" class="com.agloco.dao.hibernate.IpCountryDAOHibernate">
+		<property name="sessionFactory">
+			<ref bean="viewbarSessionFactory" />
+		</property>
+	</bean>    
+	<bean id="com.agloco.dao.util.IpCountryDAOUtil" class="com.agloco.dao.util.IpCountryDAOUtil">
+		<property name="ipCountryDAO">
+			<ref bean="com.agloco.dao.hibernate.IpCountryDAOHibernate" />
+		</property>
+	</bean>
+</beans>

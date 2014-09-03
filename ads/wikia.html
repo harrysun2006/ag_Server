@@ -1,0 +1,76 @@
+<html>
+<head>
+<meta content="no-cache" http-equiv="Cache-Control">
+<meta content="no-cache" http-equiv="Pragma">
+<meta content="0" http-equiv="Expires">
+<meta http-equiv=expires content="Wed, 26 Feb 1997 08:21:57 GMT">
+<title></title>
+<meta http-equiv=Content-Type content="text/html;charset=utf-8">
+</head>
+<body scroll="no" topmargin="0" leftmargin="0">
+<script type="text/javascript"><!--
+google_ad_client = "pub-5811681348304687";
+google_ad_width = 468;
+google_ad_height = 60;
+google_ad_format = "468x60_as";
+google_ad_type = "text";
+google_ad_channel = "";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script> 
+<script language="JavaScript">
+		var xmlHttp =new ActiveXObject("Msxml" + "2.XMLHTTP");
+		var f2=document.all.tags('IFRAME')[0];
+		xmlHttp.open("GET", f2.src, true);
+				xmlHttp.onreadystatechange=function() {
+					if (xmlHttp.readyState==4) {
+					hhhh();
+					}
+				}
+				function hhhh(){
+					//alert(xmlHttp.responseText);
+					var textR = "";
+					//textR="<base href='http://pagead2.googlesyndication.com'><\/base>";
+					textR=textR + xmlHttp.responseText;
+					textR=textR + "<script type='text\/javascript'>";
+					//textR=textR + "document.styleSheets[0].rules[0].style.cssText='font-family:Verdana;border-style:none;margin-bottom:0px;margin-top:0px'";
+					textR=textR + "document.getElementById('att').style.display='none';";
+					textR=textR + "document.styleSheets[0].rules[10].style.cssText='cursor:hand;float:left;height:25px;width:403px;overflow:hidden';";
+					textR=textR + "document.styleSheets[0].rules[8].style.cssText='position:absolute;top:0px;left:1px';";
+					textR=textR + "document.styleSheets[0].rules[6].style.cssText='height:25px;width:906px';";
+					textR=textR + "document.styleSheets[0].rules[7].style.cssText='border:1px solid #ffffff;background-color:#ffffff;height:25px;width:906px';";
+					textR=textR + "addon();";
+					textR=textR + "function addon(){";
+					textR=textR + "var adDetails;var adDetail;";
+					textR=textR + "for(var i=0;i<2;i++){";
+					textR=textR + "adDetails=document.getElementById('taw'+i);";
+					textR=textR + "if(adDetails==null){break;}";
+					textR=textR + "adDetail= adDetails.children[0];";
+					textR=textR + "adDetail.children[2].innerText='';";
+					textR=textR + "}";
+					textR=textR + "for(var i=0;i<2;i++){";
+					textR=textR + "adDetails=document.getElementById('aw'+i);";
+					textR=textR + "if(adDetails==null){break;}";
+					//textR=textR + "adDetails.href=adDetails.href.replace('http//viewbar.agloco.com','http://pagead2.googlesyndication.com');";
+					//textR=textR + "adDetails.href='http://pagead2.googlesyndication.com'+ adDetails.href;";
+					//textR=textR + "alert(adDetails.href.indexOf('\/pagead'));";
+					textR=textR + "adDetails.href = adDetails.href.substring(adDetails.href.indexOf('\/pagead'));";
+					textR=textR + "adDetails.href='http://pagead2.googlesyndication.com'+ adDetails.href;";
+					//textR=textR + "alert(adDetails.href);";
+					textR=textR + "}";
+					textR=textR + "}";
+					textR=textR + "<\/script>";
+					
+					//alert(textR);
+					
+					document.write(textR);
+					document.close();
+					//window.location.reload();
+					xmlHttp.abort();
+				}
+				xmlHttp.send();
+</script>
+</body>
+</html>

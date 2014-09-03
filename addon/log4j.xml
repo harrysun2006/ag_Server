@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<appender name="ALL"
+		class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="vb_test.log" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMin" value="INFO" />
+			<param name="LevelMax" value="INFO" />
+		</filter>
+	</appender>
+	
+	<appender name="STDOUT"
+		class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%m%n" />
+		</layout>
+	</appender>
+
+	<category name="com.viewbar">
+		<priority value="INFO" />
+	</category>
+	
+	<category name="com">
+		<priority value="ERROR" />
+		<appender-ref ref="STDOUT"/>
+	</category>
+	
+	<root>
+		<appender-ref ref="ALL" />
+	</root>
+</log4j:configuration>

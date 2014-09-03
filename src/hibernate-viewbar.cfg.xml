@@ -1,0 +1,17 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		
+		<property name="hibernate.show_sql">false</property>
+		<property name="hibernate.cache.provider_class">com.agloco.spring.hibernate.OSCacheProvider</property>
+		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="hibernate.cache.use_query_cache">false</property>
+		<property name="hibernate.jdbc.batch_size">20</property>
+		
+		<mapping resource="META-INF/agloco-viewbar.hbm.xml"/>
+		
+	</session-factory>
+</hibernate-configuration>

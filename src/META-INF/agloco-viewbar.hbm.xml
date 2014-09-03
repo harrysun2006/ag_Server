@@ -1,0 +1,438 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-lazy="false">
+
+	<class name="com.agloco.model.VBADDTrack" table="VB_ADD_Track" dynamic-update="true" dynamic-insert="true">
+		<id name="trackId" column="trackId">
+			<generator class="native">
+			</generator>
+		</id>
+		<property name="memberId" column="memberId"/>
+		<property name="adId" column="adId"/>
+		<property name="createDate" column="createDate"/>
+	</class>
+
+    <class name="com.agloco.model.VBIpCountry" table="VB_Ip_Country" dynamic-update="true" dynamic-insert="true">
+		<cache usage="read-write" />
+		<id name="beginIp" column="beginIp">
+			<generator class="assigned">
+			</generator>
+		</id>
+		<property name="endIp" column="endIp"/>
+		<property name="countryCode" column="countryCode"/>
+	</class>
+	
+	<class name="com.agloco.model.VBADKeywords" table="VB_AD_Keywords" dynamic-update="true" dynamic-insert="true">
+		<cache usage="read-write" />
+		<id name="adKeywordId" column="adKeywordId">
+			<generator class="native">
+			</generator>
+		</id>
+		<property name="content" column="content"/>
+		<property name="searchCount" column="searchCount"/>
+		<property name="createDate" column="createDate"/>
+		<property name="description" column="description"/>
+	</class>
+
+	<class name="com.agloco.model.VBADMatrix" table="VB_AD_Matrix" dynamic-update="true" dynamic-insert="true">
+		<cache usage="read-write" />
+		<composite-id name="primaryKey" class="com.agloco.model.VBADMatrixPK">
+			<key-property name="adKeywordId" column="adKeywordId" />
+			<key-property name="adId" column="adId" />
+		</composite-id>
+		<property name="weight" column="weight"/>
+		<property name="createDate" column="createDate"/>
+	</class>
+
+	<class name="com.agloco.model.VBAdvertise" table="VB_Advertise" dynamic-update="true" dynamic-insert="true">
+		<cache usage="read-write" />
+		<id name="adId" column="adId">
+			<generator class="assigned">
+			</generator>
+		</id>
+		<property name="content" column="content"/>
+		<property name="banner" column="banner"/>
+		<property name="category" column="category"/>
+		<property name="type" column="type_"/>
+		<property name="pattern" column="pattern"/>
+		<property name="sponsor" column="sponsor"/>
+		<property name="downloadCount" column="downloadCount"/>
+		<property name="visitCount" column="visitCount"/>
+		<property name="description" column="description"/>
+		<property name="createDate" column="createDate"/>
+	</class>
+
+	<class name="com.agloco.model.VBADVTrack" table="VB_ADV_Track" dynamic-update="true" dynamic-insert="true">
+		<id name="trackId" column="trackId">
+			<generator class="native">
+			</generator>
+		</id>
+		<property name="memberId" column="memberId"/>
+		<property name="adId" column="adId"/>
+		<property name="createDate" column="createDate"/>
+		<property name="browser" column="browser"/>
+	</class>
+
+	<class name="com.agloco.model.VBAFDetail" table="VB_AF_Detail" dynamic-update="true" dynamic-insert="true">
+		<id name="afDetailId" column="afDetailId">
+			<generator class="native">
+			</generator>
+		</id>
+		<property name="affiliateId" column="affiliateId"/>
+		<property name="createDate" column="createDate"/>
+		<property name="pattern" column="pattern"/>
+		<property name="agPattern" column="agPattern"/>
+		<property name="category" column="category"/>
+		<property name="rebate" column="rebate"/>
+		<property name="status" column="status"/>
+		<property name="info" column="info"/>
+		<property name="description" column="description"/>
+	</class>
+
+	<class name="com.agloco.model.VBAffiliate" table="VB_Affiliate" dynamic-update="true" dynamic-insert="true">
+		<id name="affiliateId" column="affiliateId">
+			<generator class="native">
+			</generator>
+		</id>
+		<property name="name" column="name"/>
+		<property name="createDate" column="createDate"/>
+		<property name="category" column="category"/>
+		<property name="description" column="description"/>
+	</class>
+
+	<class name="com.agloco.model.VBConfig" table="VB_Config" dynamic-update="true" dynamic-insert="true">
+		<id name="configId" column="configId">
+			<generator class="native">
+			</generator>
+		</id>
+		<property name="name" column="name"/>
+		<property name="value" column="value_"/>
+		<property name="active" column="active_"/>
+		<property name="createDate" column="createDate"/>
+		<property name="description" column="description"/>
+	</class>
+
+	<class name="com.agloco.model.VBFavorite" table="VB_Favorite" dynamic-update="true" dynamic-insert="true">
+		<id name="favoriteId" column="favoriteId">
+			<generator class="native">
+			</generator>
+		</id>
+		<property name="name" column="name"/>
+		<property name="url" column="url"/>
+		<property name="category" column="category"/>
+		<property name="active" column="active_"/>
+		<property name="sponsor" column="sponsor"/>
+		<property name="description" column="description"/>
+	</class>
+
+	<class name="com.agloco.model.VBFiles" table="VB_Files" dynamic-update="true" dynamic-insert="true">
+		<id name="id" column="id">
+			<generator class="native">
+			</generator>
+		</id>
+		<property name="viewbarId" column="viewbarId"/>
+		<property name="fileName" column="fileName"/>
+		<property name="filePath" column="filePath"/>
+		<property name="md5" column="md5"/>
+		<property name="description" column="description"/>
+	</class>
+
+	<class name="com.agloco.model.VBMOption" table="VB_M_Option" dynamic-update="true" dynamic-insert="true">
+		<id name="optionId" column="optionId">
+			<generator class="native">
+			</generator>
+		</id>
+		<property name="memberId" column="memberId"/>
+		<property name="name" column="name"/>
+		<property name="value" column="value_"/>
+		<property name="description" column="description"/>
+		<property name="createDate" column="createDate"/>
+		<property name="modifiedDate" column="modifiedDate"/>
+	</class>
+
+	<class name="com.agloco.model.VBRule" table="VB_Rule" dynamic-update="true" dynamic-insert="true">
+		<id name="ruleId" column="ruleId">
+			<generator class="native">
+			</generator>
+		</id>
+		<property name="category" column="category"/>
+		<property name="createDate" column="createDate"/>
+		<property name="name" column="name"/>
+		<property name="value" column="value_"/>
+		<property name="operator" column="operator"/>
+		<property name="active" column="active_"/>
+	</class>
+
+	<class name="com.agloco.model.VBSearchEngine" table="VB_Search_Engine" dynamic-update="true" dynamic-insert="true">
+		<cache usage="read-write" />
+		<id name="engineId" column="engineId">
+			<generator class="native">
+			</generator>
+		</id>
+		<property name="name" column="name"/>
+		<property name="url" column="url"/>
+		<property name="pattern" column="pattern"/>
+		<property name="description" column="description"/>
+	</class>
+
+	<class name="com.agloco.model.VBSearchTrack" table="VB_Search_Track" dynamic-update="true" dynamic-insert="true">
+		<id name="trackId">
+			<column name="trackId" sql-type="integer"/>
+			<generator class="native">
+			</generator>
+		</id>
+		<property name="memberId">
+			<column name="memberId" not-null="true" index="idx_memberId" sql-type="integer"/>
+		</property>
+		<property name="engineId">
+			<column name="engineId" sql-type="integer"/>
+		</property>
+		<property name="keywords">
+			<column name="keywords" length="255"/>
+		</property>
+		<property name="browser">
+			<column name="browser" length="100"/>
+		</property>
+		<property name="createDate">
+			<column name="createDate" not-null="true"/>
+		</property>
+	</class>
+
+	<class name="com.agloco.model.VBSuggestion" table="VB_Suggestion" dynamic-update="true" dynamic-insert="true">
+		<id name="suggestionId" column="suggestionId">
+			<generator class="native">
+			</generator>
+		</id>
+		<property name="memberId" column="memberId"/>
+		<property name="viewbarId" column="viewbarId"/>
+		<property name="suggestion" column="suggestion"/>
+	</class>
+
+	<class name="com.agloco.model.VBTimeSubTotal" table="VB_Time_Subtotal" dynamic-update="true" dynamic-insert="true">
+		<id name="subtotalId">
+			<column name="subtotalId" sql-type="integer"/>
+			<generator class="identity"/>
+		</id>
+		<property name="memberId">
+			<column name="memberId" not-null="true" index="idx_memberId, idx_memberTime" sql-type="integer"/>
+		</property>
+		<property name="surfDate">
+			<column name="surfDate" not-null="true" sql-type="date"/>
+		</property>
+		<property name="year">
+			<column name="year" not-null="true" index="idx_memberTime" length="4"/>
+		</property>
+		<property name="month">
+			<column name="month" not-null="true" index="idx_memberTime" length="2"/>
+		</property>
+		<property name="day">
+			<column name="day" not-null="true" index="idx_memberTime" length="2"/>
+		</property>
+		<property name="second">
+			<column name="second_" not-null="true" sql-type="integer"/>
+		</property>
+	</class>
+
+	<class name="com.agloco.model.VBTimeTotal" table="VB_Time_Total" dynamic-update="true" dynamic-insert="true">
+		<id name="memberId">
+			<generator class="assigned"/>
+		</id>
+		<property name="totalSecond" column="totalSecond" />
+		<property name="selfTime" column="selfTime" />
+		<property name="directReferralTime" column="directReferralTime" />
+		<property name="extendedReferralTime" column="extendedReferralTime" />
+		<property name="modifiedDate" column="modifiedDate" />
+	</class>
+
+	<class name="com.agloco.model.VBTimeTrack" table="VB_Time_Track" dynamic-update="true" dynamic-insert="true">
+		<id name="trackId">
+			<column name="trackId" sql-type="integer"/>
+			<generator class="identity"/>
+		</id>
+		<property name="memberId">
+			<column name="memberId" not-null="true" index="idx_memberId" sql-type="integer"/>
+		</property>
+		<property name="submitId">
+			<column name="submitId" not-null="true" index="idx_memberId" sql-type="integer"/>
+		</property>
+		<property name="beginTime">
+			<column name="beginTime" not-null="true"/>
+		</property>
+		<property name="endTime">
+			<column name="endTime" not-null="true"/>
+		</property>
+		<property name="point">
+			<column name="point" length="12" precision="12" scale="2" sql-type="double(12, 2)"/>
+		</property>
+		<property name="status">
+			<column name="status" length="1" index="idx_status"/>
+		</property>
+	</class>
+
+	<class name="com.agloco.model.VBURLTrack" table="VB_URL_Track" dynamic-update="true" dynamic-insert="true">
+		<id name="trackId">
+			<column name="trackId" sql-type="integer"/>
+			<generator class="identity"/>
+		</id>
+		<property name="memberId">
+			<column name="memberId" not-null="true" index="idx_memberId" sql-type="integer"/>
+		</property>
+		<property name="createDate">
+			<column name="createDate" not-null="true"/>
+		</property>
+		<property name="domainName">
+			<column name="domainName" length="255"/>
+		</property>
+		<property name="completeURL">
+			<column name="completeURL" length="255"/>
+		</property>
+		<property name="title">
+			<column name="title" length="255"/>
+		</property>
+		<property name="keywords">
+			<column name="keywords" length="255"/>
+		</property>
+		<property name="errorDescription">
+			<column name="errorDescription" length="255"/>
+		</property>
+		<property name="errorStatus">
+			<column name="errorStatus" length="16"/>
+		</property>
+		<property name="browser">
+			<column name="browser" length="128"/>
+		</property>
+		<property name="description">
+			<column name="description" length="255"/>
+		</property>
+	</class>
+
+	<class name="com.agloco.model.VBViewbar" table="VB_Viewbar" dynamic-update="true" dynamic-insert="true">
+		<id name="viewbarId" column="viewbarId">
+			<generator class="assigned">
+			</generator>
+		</id>
+		<property name="osVersion" column="osVersion"/>
+		<property name="createDate" column="createDate"/>
+		<property name="releaseDate" column="releaseDate"/>
+		<property name="expireDate" column="expireDate"/>
+		<property name="rootPath" column="rootPath"/>
+		<property name="downloadCount" column="downloadCount"/>
+		<property name="downloadSCount" column="downloadSCount"/>
+		<property name="description" column="description"/>
+	</class>
+
+	<class name="com.agloco.log4j.MessageObject" table="VB_Log" dynamic-update="true" dynamic-insert="true">
+		<id name="logId">
+			<column name="logId" sql-type="integer"/>
+			<generator class="identity">
+			</generator>
+		</id>
+		<property name="createDate">
+			<column name="createDate" not-null="true"/>
+		</property>
+		<property name="thread">
+			<column name="thread" length="75"/>
+		</property>
+		<property name="priority">
+			<column name="priority" length="75"/>
+		</property>
+		<property name="category">
+			<column name="category" length="75"/>
+		</property>
+		<property name="message">
+			<column name="message" sql-type="text"/>
+		</property>
+		<property name="exception">
+			<column name="exception" length="255"/>
+		</property>
+		<property name="memberId">
+			<column name="memberId" sql-type="integer"/>
+		</property>
+		<property name="operate">
+			<column name="operate" length="15"/>
+		</property>
+		<property name="serverIp">
+			<column name="serverIp" length="128"/>
+		</property>
+		<property name="ipAddr">
+			<column name="ipAddr" length="50"/>
+		</property>
+		<property name="macAddr">
+			<column name="macAddr" length="64"/>
+		</property>
+		<property name="computerName">
+			<column name="computerName" length="255"/>
+		</property>
+		<property name="loginUser">
+			<column name="loginUser" length="255"/>
+		</property>
+		<property name="domainName">
+			<column name="domainName" length="255"/>
+		</property>
+		<property name="osVersion">
+			<column name="osVersion" length="255"/>
+		</property>
+		<property name="viewbarId">
+			<column name="viewbarId" length="64"/>
+		</property>
+		<property name="timeZone">
+			<column name="timeZone" length="64"/>
+		</property>
+		<property name="otherInfo">
+			<column name="otherInfo" length="75"/>
+		</property>
+		<property name="sessionId">
+			<column name="sessionId" length="75"/>
+		</property>
+		<property name="description">
+			<column name="description" length="255"/>
+		</property>
+	</class>
+
+	<class name="com.agloco.model.VBSessionTrack" table="VB_Session_Track" dynamic-update="true" dynamic-insert="true">
+		<cache usage="read-write" />
+		<id name="memberId" column="memberId">
+			<generator class="assigned">
+			</generator>
+		</id>
+		<property name="sessionId" column="sessionId"/>
+		<property name="modifiedDate" column="modifiedDate"/>
+	</class>
+	
+	<class name="com.agloco.model.VBTools" table="VB_Tools" dynamic-update="true" dynamic-insert="true">
+		<id name="id" column="id">
+			<generator class="native">
+			</generator>
+		</id>
+		<property name="name" column="name"/>
+		<property name="version" column="version"/>
+		<property name="operatingSystem" column="operatingSystem"/>
+		<property name="description" column="description"/>
+		<property name="createDate" column="createDate"/>
+		<property name="downloadCount" column="downloadCount"/>
+	</class>
+	
+	<class name="com.agloco.model.VBToolsPathes" table="VB_Tools_Pathes" dynamic-update="true" dynamic-insert="true">
+		<id name="id" column="id">
+			<generator class="native">
+			</generator>
+		</id>
+		
+		<property name="toolId" column="toolId"/>
+		<property name="url" column="url"/>
+	</class>
+	<class name="com.agloco.model.VBToolsDTrack" table="VB_Tools_Track" dynamic-update="true" dynamic-insert="true">
+		<id name="id" column="id">
+			<generator class="native">
+			</generator>
+		</id>
+		<property name="memberId" column="memberId"/>
+		<property name="toolId" column="toolId"/>
+		<property name="createDate" column="createDate"/>
+	</class>
+	
+	
+</hibernate-mapping>

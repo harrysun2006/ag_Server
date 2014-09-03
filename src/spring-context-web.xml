@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	    
+	<!-- login service -->    
+	<bean id="loginService" class="com.agloco.web.service.LoginService" />
+	<bean id="logoutService" class="com.agloco.web.service.LogoutService" />
+	<bean id="autoLoginService" class="com.agloco.web.service.AutoLoginService" />
+	<bean id="searchTrackTableRolling" class="com.agloco.rolling.RollingTableObject" init-method="init">
+        <property name="tableName">
+            <value>VB_Search_Track</value>
+        </property>
+        <property name="className">
+            <value>com.agloco.model.VBSearchTrack</value>
+        </property>
+    </bean>
+    <bean id="searchKeywordsService" class="com.agloco.web.service.SearchKeywordsService">
+       <property name="searchTrackRolling">
+              <ref local="searchTrackTableRolling"/>
+       </property>
+    </bean>
+
+	<!-- surf track service -->    
+	<bean id="timeTrackTableRolling" class="com.agloco.rolling.RollingTableObject" init-method="init">
+        <property name="tableName">
+            <value>VB_Time_Track</value>
+        </property>
+        <property name="className">
+            <value>com.agloco.model.VBTimeTrack</value>
+        </property>
+    </bean>
+	<bean id="subTotlaTableRolling" class="com.agloco.rolling.RollingTableObject" init-method="init">
+        <property name="datePattern">
+            <value>'_'yyyyMM</value>
+        </property>
+        <property name="tableName">
+            <value>VB_Time_Subtotal</value>
+        </property>
+        <property name="className">
+            <value>com.agloco.model.VBTimeSubTotal</value>
+        </property>
+    </bean>
+	<bean id="urlTrackTableRolling" class="com.agloco.rolling.RollingTableObject" init-method="init">
+        <property name="tableName">
+            <value>VB_URL_Track</value>
+        </property>
+        <property name="className">
+            <value>com.agloco.model.VBURLTrack</value>
+        </property>
+    </bean>
+	<bean id="timeTrackService" class="com.agloco.web.service.TimeTrackService">
+       <property name="timeRolling">
+            <ref local="timeTrackTableRolling"/>
+        </property>
+        <property name="timeSubTotal">
+              <ref local="subTotlaTableRolling"/>
+       </property>
+	</bean>
+	<bean id="urlTrackService" class="com.agloco.web.service.URLTrackService">
+        <property name="urlRolling">
+              <ref local="urlTrackTableRolling"/>
+       </property>
+	</bean>
+	<bean id="affiliateService" class="com.agloco.web.service.AffiliateService" />
+	
+	<bean id="autoUpdateService" class="com.agloco.web.service.AutoUpdateService" />
+	<bean id="performanceService" class="com.agloco.web.service.PerformanceService" />
+	<bean id="viewbarCheckService" class="com.agloco.web.service.ViewbarCheckService" />
+	<bean id="downloadCountService" class="com.agloco.web.service.DownloadCountService" />
+	<bean id="moptionService" class="com.agloco.web.service.MOptionService" />
+
+</beans>

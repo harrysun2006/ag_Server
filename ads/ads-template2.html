@@ -1,0 +1,75 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html;charset=utf-8">
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+<META HTTP-EQUIV="Expires" CONTENT="0">
+<style>
+<!--
+body{font-family:Verdana;border-style:none;margin-bottom:2px;margin-top:2px;}
+div.outDiv{
+overflow:hidden;
+width:906;
+margin-bottom:2px;
+margin-top:0px;
+height:55px;
+}
+div.advertise{
+width:906;
+font-size:12px;
+line-height:12px;
+background-color:#FFFFFF;
+height:55px;
+margin-bottom:0px;
+margin-top:0px;
+}
+A:LINK{color:blue;font:12px Verdana;}
+A:VISITED{color:blue;font:12px Verdana;}
+A:HOVER{color:blue;font:12px Verdana;}
+//-->
+</style>
+</head>
+
+<body scroll="no" topmargin="0" leftmargin="0" background="..\skins\Green\ads.bmp">
+<div id="d2" class="outDiv">
+<table bgcolor="#FFFFFF" cellpadding="0" cellspacing="0">
+  <tr>
+    <td id="d21"><nobr><div id="advertise" class="advertise"></div></nobr></td>
+  </tr>
+</table>
+</div>
+</body>
+</html>
+<script language="javascript">
+<!--
+var ads_default = new Array();
+var ads_search = new Array('{[[_VIEWBAR_ADS_SEARCH_]]}');
+var default_index = 0;
+var search_index = 0;
+var temp_index= 0;
+ads_default.push('<iframe style="text-align: center" align="center" width="906" height="55" frameborder="0" scrolling="no" src="http://viewbar.agloco.com/ads/testCache.html"></iframe>');
+function displayAds(){
+  if (ads_search != null && ads_search.length > 0 && ads_search[0] != '{[[_VIEWBAR_' + 'ADS_SEARCH_]]}') {
+    setTimeout("displayAds();", 60000);
+  } else if (ads_default != null) {
+    setTimeout("displayAds();", 30000);
+  }
+  if (ads_search != null && ads_search.length > 0 && ads_search[0] != '{[[_VIEWBAR_' + 'ADS_SEARCH_]]}') {
+    search_index = ads_search.length-1;
+    document.getElementById('advertise').innerHTML = ads_search[search_index];
+    ads_search.pop(ads_search[search_index]);
+  }else if( ads_default != null) {
+    temp_index = Math.floor(Math.random() * (ads_default.length));
+    if (ads_default.length > 1 && default_index != 0) {
+      while (default_index == temp_index) {
+        temp_index = Math.floor(Math.random() * (ads_default.length));
+      }
+    }
+    default_index = temp_index;
+    document.getElementById('advertise').innerHTML = ads_default[default_index];
+  }
+}
+displayAds();
+//-->
+</script>
+ 

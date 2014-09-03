@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-lazy="false">
+
+	<class name="com.agloco.model.FormalMember" table="AG_Member" dynamic-update="true" dynamic-insert="true">
+		<id name="memberId" column="memberId">
+			<generator class="native">
+			</generator>
+		</id>
+
+		<property name="password" formula="AES_DECRYPT(password_, 'agloco')"/>
+		<property name="firstName" formula="AES_DECRYPT(firstName, 'agloco')"/>
+		<property name="middleName" formula="AES_DECRYPT(middleName, 'agloco')"/>
+		<property name="lastName" formula="AES_DECRYPT(lastName, 'agloco')"/>
+		<property name="birthDate" formula="AES_DECRYPT(birthDate, 'agloco')"/>
+		<property name="address1" formula="AES_DECRYPT(address1, 'agloco')"/>
+		<property name="address2" formula="AES_DECRYPT(address2, 'agloco')"/>
+		<property name="city" formula="AES_DECRYPT(city, 'agloco')"/>
+		<property name="state" formula="AES_DECRYPT(state_, 'agloco')"/>
+		<property name="postCode" formula="AES_DECRYPT(postCode, 'agloco')"/>
+		<property name="country" formula="AES_DECRYPT(country, 'agloco')"/>
+
+		<property name="encPassword" column="password_"/>
+		<property name="encFirstName" column="firstName"/>
+		<property name="encMiddleName" column="middleName"/>
+		<property name="encLastName" column="lastName"/>
+		<property name="encBirthDate" column="birthDate"/>
+		<property name="encAddress1" column="address1"/>
+		<property name="encAddress2" column="address2"/>
+		<property name="encCity" column="city"/>
+		<property name="encState" column="state_"/>
+		<property name="encPostCode" column="postCode"/>
+		<property name="encCountry" column="country"/>
+
+		<property name="memberCode" column="memberCode"/>
+		<property name="emailAddress" column="emailAddress"/>
+		<property name="createDate" column="createDate"/>
+		<property name="modifiedDate" column="modifiedDate"/>
+		<property name="status" column="status"/>
+		<property name="reserved1" column="reserved1"/>
+		<property name="reserved2" column="reserved2"/>
+		<property name="reserved3" column="reserved3"/>
+		<property name="userId" column="userId"/>
+	</class>
+	
+	<class name="com.agloco.model.TemporaryMember" table="AG_M_Temp" dynamic-update="true" dynamic-insert="true">
+		<id name="memberId" column="memberId" />
+
+		<property name="password" formula="AES_DECRYPT(password_, 'agloco')"/>
+		<property name="firstName" formula="AES_DECRYPT(firstName, 'agloco')"/>
+		<property name="middleName" formula="AES_DECRYPT(middleName, 'agloco')"/>
+		<property name="lastName" formula="AES_DECRYPT(lastName, 'agloco')"/>
+		<property name="birthDate" formula="AES_DECRYPT(birthDate, 'agloco')"/>
+		<property name="address1" formula="AES_DECRYPT(address1, 'agloco')"/>
+		<property name="address2" formula="AES_DECRYPT(address2, 'agloco')"/>
+		<property name="city" formula="AES_DECRYPT(city, 'agloco')"/>
+		<property name="state" formula="AES_DECRYPT(state_, 'agloco')"/>
+		<property name="postCode" formula="AES_DECRYPT(postCode, 'agloco')"/>
+		<property name="country" formula="AES_DECRYPT(country, 'agloco')"/>
+
+		<property name="encPassword" column="password_"/>
+		<property name="encFirstName" column="firstName"/>
+		<property name="encMiddleName" column="middleName"/>
+		<property name="encLastName" column="lastName"/>
+		<property name="encBirthDate" column="birthDate"/>
+		<property name="encAddress1" column="address1"/>
+		<property name="encAddress2" column="address2"/>
+		<property name="encCity" column="city"/>
+		<property name="encState" column="state_"/>
+		<property name="encPostCode" column="postCode"/>
+		<property name="encCountry" column="country"/>
+
+		<property name="referralCode" column="referralCode"/>
+		<property name="memberCode" column="memberCode"/>
+		<property name="emailAddress" column="emailAddress"/>
+		<property name="createDate" column="createDate"/>
+		<property name="modifiedDate" column="modifiedDate"/>
+		<property name="mailCount" column="mailCount"/>
+		<property name="lastMailTime" column="lastMailTime"/>
+		<property name="mailResult" column="mailResult"/>
+		<property name="userId" column="userId"/>
+		<property name="status" column="status"/>
+	</class>
+	
+</hibernate-mapping>

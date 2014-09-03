@@ -1,0 +1,25 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+   xmlns:customer="http://test.com/xmlbeans"
+   targetNamespace="http://test.com/xmlbeans"
+   elementFormDefault="qualified"
+>
+
+	<xs:element name="customer">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="order" type="customer:order" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:long"/>
+			<xs:attribute name="name" type="xs:string"/>
+			<xs:attribute name="code" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="order">
+		<xs:attribute name="id" type="xs:long"/>
+		<xs:attribute name="price" type="xs:double"/>
+		<xs:attribute name="createDate" type="xs:dateTime"/>	
+	</xs:complexType>
+
+</xs:schema>
+

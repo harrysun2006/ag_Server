@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+ 	
+ 	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName">
+            <value>java:comp/env/jdbc/AglocoPool</value>
+        </property>
+    </bean>
+	
+	<bean id="defaultLobHandler"
+		  class="org.springframework.jdbc.support.lob.DefaultLobHandler"
+		  lazy-init="true"/>
+	
+	<!-- Hibernate sessionFactory -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref local="dataSource"/>
+		</property>
+		<property name="configLocation">
+			<value>classpath:/hibernate-agloco.cfg.xml</value>
+		</property>
+		<property name="lobHandler" ref="defaultLobHandler"/>
+	</bean>
+	
+	<!-- Transaction manager  -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory">
+			<ref local="sessionFactory"/>
+		</property>
+	</bean>
+	    
+	<!-- Bean factory post processor -->
+	<bean class="com.agloco.spring.BeanFactoryAglocoProcessor"/>
+	
+	<!--Member dao -->
+	<bean id="com.agloco.dao.hibernate.MemberDAOHibernate" class="com.agloco.dao.hibernate.MemberDAOHibernate">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>    
+	<bean id="com.agloco.dao.util.MemberDAOUtil" class="com.agloco.dao.util.MemberDAOUtil">
+		<property name="memberDAO">
+			<ref bean="com.agloco.dao.hibernate.MemberDAOHibernate" />
+		</property>
+	</bean>
+	    
+	<!-- Member service -->    
+	<bean id="com.agloco.service.impl.MemberServiceImpl" class="com.agloco.service.impl.MemberServiceImpl" />
+	<bean id="com.agloco.service.MemberService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager">
+			<ref bean="transactionManager" />
+		</property>
+		<property name="target">
+			<ref bean="com.agloco.service.impl.MemberServiceImpl" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+    
+    <bean id="com.agloco.service.util.MemberServiceUtil" class="com.agloco.service.util.MemberServiceUtil">
+		<property name="memberService">
+			<ref bean="com.agloco.service.MemberService" />
+		</property>
+	</bean>  
+    
+</beans>

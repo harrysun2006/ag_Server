@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<customer id="001" name="AGloCo" code="AGLO">
+	<order id="101" price="699.88" createDate="2007-04-08"/>
+	<order id="102" price="1003.66" createDate="2007-02-08"/>
+	<order id="103" price="2566.09" createDate="2007-03-08"/>
+</customer>

@@ -1,0 +1,122 @@
+JDK 1.4+ collections available
+Commons Collections 3.x available
+Loading XML bean definitions from class path resource [spring-context-agloco.xml]
+Loading XML bean definitions from class path resource [spring-context-viewbar.xml]
+JGroups version: 2.4.1
+sockets will use interface 119.119.114.10
+socket information:
+local_addr=119.119.114.10:3717, mcast_addr=231.12.21.133:45566, bind_addr=/119.119.114.10, ttl=32
+sock: bound to 119.119.114.10:3717, receive buffer size=64000, send buffer size=32000
+mcast_recv_sock: bound to 119.119.114.10:45566, send buffer size=150000, receive buffer size=80000
+mcast_send_sock: bound to 119.119.114.10:3718, send buffer size=150000, receive buffer size=80000
+Loading XML bean definitions from class path resource [spring-context-web.xml]
+Bean factory for application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=30721564]: org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [dataSource,defaultLobHandler,sessionFactory,transactionManager,com.agloco.spring.BeanFactoryAglocoProcessor,com.agloco.dao.hibernate.MemberDAOHibernate,com.agloco.dao.util.MemberDAOUtil,com.agloco.service.impl.MemberServiceImpl,com.agloco.service.MemberService,com.agloco.service.util.MemberServiceUtil,viewbarDataSource,viewbarSessionFactory,viewbarTransactionManager,com.agloco.dao.hibernate.ViewbarDAOHibernate,com.agloco.dao.util.ViewbarDAOUtil,com.agloco.service.impl.ViewbarServiceImpl,com.agloco.service.ViewbarService,com.agloco.service.util.ViewbarServiceUtil,com.agloco.dao.hibernate.FilesDAOHibernate,com.agloco.dao.util.FilesDAOUtil,com.agloco.service.impl.FilesServiceImpl,com.agloco.service.FilesService,com.agloco.service.util.FilesServiceUtil,com.agloco.dao.hibernate.MOptionDAOHibernate,com.agloco.dao.util.MOptionDAOUtil,com.agloco.service.impl.MOptionServiceImpl,com.agloco.service.MOptionService,com.agloco.service.util.MOptionServiceUtil,com.agloco.dao.hibernate.FavoriteDAOHibernate,com.agloco.dao.util.FavoriteDAOUtil,com.agloco.service.impl.FavoriteServiceImpl,com.agloco.service.FavoriteService,com.agloco.service.util.FavoriteServiceUtil,com.agloco.dao.hibernate.RuleDAOHibernate,com.agloco.dao.util.RuleDAOUtil,com.agloco.service.impl.RuleServiceImpl,com.agloco.service.RuleService,com.agloco.service.util.RuleServiceUtil,com.agloco.dao.hibernate.SurfDAOHibernate,com.agloco.dao.util.SurfDAOUtil,com.agloco.service.impl.SurfServiceImpl,com.agloco.service.SurfService,com.agloco.service.util.SurfServiceUtil,com.agloco.dao.hibernate.AdvertiseDAOHibernate,com.agloco.dao.util.AdvertiseDAOUtil,com.agloco.service.impl.AdvertiseServiceImpl,com.agloco.service.AdvertiseService,com.agloco.service.util.AdvertiseServiceUtil,com.agloco.dao.hibernate.SearchDAOHibernate,com.agloco.dao.util.SearchDAOUtil,com.agloco.service.impl.SearchServiceImpl,com.agloco.service.SearchService,com.agloco.service.util.SearchServiceUtil,com.agloco.dao.hibernate.LogMessageDaoHibernate,com.agloco.dao.util.LogMessageDaoUtil,com.agloco.service.impl.LogMessageServiceImpl,com.agloco.service.LogMessageService,com.agloco.service.util.LogMessageServiceUtil,com.agloco.dao.hibernate.RollingDAOHibernate,com.agloco.dao.util.RollingDAOUtil,com.agloco.service.impl.RollingServiceImpl,com.agloco.service.RollingService,com.agloco.service.util.RollingServiceUtil,com.agloco.dao.hibernate.SessionTrackDAOHibernate,com.agloco.dao.util.SessionTrackDAOUtil,com.agloco.service.impl.SessionTrackServiceImpl,com.agloco.service.SessionTrackService,com.agloco.service.util.SessionTrackServiceUtil,com.agloco.dao.hibernate.AffiliateDAOHibernate,com.agloco.dao.util.AffiliateDAOUtil,com.agloco.service.impl.AffiliateServiceImpl,com.agloco.service.AffiliateService,com.agloco.service.util.AffiliateServiceUtil,com.agloco.spring.advice.ClearCacheAdvice,clearCacheAdvisor,com.agloco.dao.hibernate.ToolsDAOHibernate,com.agloco.dao.util.ToolsDAOUtil,com.agloco.service.impl.ToolsServiceImpl,com.agloco.service.ToolsService,com.agloco.service.util.ToolsServiceUtil,com.agloco.dao.hibernate.ConfigDAOHibernate,com.agloco.dao.util.ConfigDAOUtil,com.agloco.service.impl.ConfigServiceImpl,com.agloco.service.ConfigService,com.agloco.service.util.ConfigServiceUtil,com.agloco.dao.hibernate.IpCountryDAOHibernate,com.agloco.dao.util.IpCountryDAOUtil,loginService,logoutService,autoLoginService,searchTrackTableRolling,searchKeywordsService,timeTrackTableRolling,subTotlaTableRolling,urlTrackTableRolling,timeTrackService,urlTrackService,affiliateService,autoUpdateService,performanceService,viewbarCheckService,downloadCountService,moptionService]; root of BeanFactory hierarchy
+103 beans defined in application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=30721564]
+Unable to locate MessageSource with name 'messageSource': using default [org.springframework.context.support.DelegatingMessageSource@c05d3b]
+Unable to locate ApplicationEventMulticaster with name 'applicationEventMulticaster': using default [org.springframework.context.event.SimpleApplicationEventMulticaster@166afb3]
+Pre-instantiating singletons in factory [org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [dataSource,defaultLobHandler,sessionFactory,transactionManager,com.agloco.spring.BeanFactoryAglocoProcessor,com.agloco.dao.hibernate.MemberDAOHibernate,com.agloco.dao.util.MemberDAOUtil,com.agloco.service.impl.MemberServiceImpl,com.agloco.service.MemberService,com.agloco.service.util.MemberServiceUtil,viewbarDataSource,viewbarSessionFactory,viewbarTransactionManager,com.agloco.dao.hibernate.ViewbarDAOHibernate,com.agloco.dao.util.ViewbarDAOUtil,com.agloco.service.impl.ViewbarServiceImpl,com.agloco.service.ViewbarService,com.agloco.service.util.ViewbarServiceUtil,com.agloco.dao.hibernate.FilesDAOHibernate,com.agloco.dao.util.FilesDAOUtil,com.agloco.service.impl.FilesServiceImpl,com.agloco.service.FilesService,com.agloco.service.util.FilesServiceUtil,com.agloco.dao.hibernate.MOptionDAOHibernate,com.agloco.dao.util.MOptionDAOUtil,com.agloco.service.impl.MOptionServiceImpl,com.agloco.service.MOptionService,com.agloco.service.util.MOptionServiceUtil,com.agloco.dao.hibernate.FavoriteDAOHibernate,com.agloco.dao.util.FavoriteDAOUtil,com.agloco.service.impl.FavoriteServiceImpl,com.agloco.service.FavoriteService,com.agloco.service.util.FavoriteServiceUtil,com.agloco.dao.hibernate.RuleDAOHibernate,com.agloco.dao.util.RuleDAOUtil,com.agloco.service.impl.RuleServiceImpl,com.agloco.service.RuleService,com.agloco.service.util.RuleServiceUtil,com.agloco.dao.hibernate.SurfDAOHibernate,com.agloco.dao.util.SurfDAOUtil,com.agloco.service.impl.SurfServiceImpl,com.agloco.service.SurfService,com.agloco.service.util.SurfServiceUtil,com.agloco.dao.hibernate.AdvertiseDAOHibernate,com.agloco.dao.util.AdvertiseDAOUtil,com.agloco.service.impl.AdvertiseServiceImpl,com.agloco.service.AdvertiseService,com.agloco.service.util.AdvertiseServiceUtil,com.agloco.dao.hibernate.SearchDAOHibernate,com.agloco.dao.util.SearchDAOUtil,com.agloco.service.impl.SearchServiceImpl,com.agloco.service.SearchService,com.agloco.service.util.SearchServiceUtil,com.agloco.dao.hibernate.LogMessageDaoHibernate,com.agloco.dao.util.LogMessageDaoUtil,com.agloco.service.impl.LogMessageServiceImpl,com.agloco.service.LogMessageService,com.agloco.service.util.LogMessageServiceUtil,com.agloco.dao.hibernate.RollingDAOHibernate,com.agloco.dao.util.RollingDAOUtil,com.agloco.service.impl.RollingServiceImpl,com.agloco.service.RollingService,com.agloco.service.util.RollingServiceUtil,com.agloco.dao.hibernate.SessionTrackDAOHibernate,com.agloco.dao.util.SessionTrackDAOUtil,com.agloco.service.impl.SessionTrackServiceImpl,com.agloco.service.SessionTrackService,com.agloco.service.util.SessionTrackServiceUtil,com.agloco.dao.hibernate.AffiliateDAOHibernate,com.agloco.dao.util.AffiliateDAOUtil,com.agloco.service.impl.AffiliateServiceImpl,com.agloco.service.AffiliateService,com.agloco.service.util.AffiliateServiceUtil,com.agloco.spring.advice.ClearCacheAdvice,clearCacheAdvisor,com.agloco.dao.hibernate.ToolsDAOHibernate,com.agloco.dao.util.ToolsDAOUtil,com.agloco.service.impl.ToolsServiceImpl,com.agloco.service.ToolsService,com.agloco.service.util.ToolsServiceUtil,com.agloco.dao.hibernate.ConfigDAOHibernate,com.agloco.dao.util.ConfigDAOUtil,com.agloco.service.impl.ConfigServiceImpl,com.agloco.service.ConfigService,com.agloco.service.util.ConfigServiceUtil,com.agloco.dao.hibernate.IpCountryDAOHibernate,com.agloco.dao.util.IpCountryDAOUtil,loginService,logoutService,autoLoginService,searchTrackTableRolling,searchKeywordsService,timeTrackTableRolling,subTotlaTableRolling,urlTrackTableRolling,timeTrackService,urlTrackService,affiliateService,autoUpdateService,performanceService,viewbarCheckService,downloadCountService,moptionService]; root of BeanFactory hierarchy]
+Hibernate 3.2 cr2
+hibernate.properties not found
+Bytecode provider name : cglib
+using JDK 1.4 java.sql.Timestamp handling
+configuring from url: file:/E:/Work/AGloCoViewbar/Server/ROOT/WEB-INF/classes/hibernate-agloco.cfg.xml
+Reading mappings from resource: META-INF/agloco-member.hbm.xml
+Mapping class: com.agloco.model.FormalMember -> AG_Member
+Mapping class: com.agloco.model.TemporaryMember -> AG_M_Temp
+Configured SessionFactory: null
+Initializing connection provider: org.springframework.orm.hibernate3.LocalDataSourceConnectionProvider
+RDBMS: MySQL, version: 4.1.21-community-nt
+JDBC driver: MySQL-AB JDBC Driver, version: mysql-connector-java-3.1.10 ( $Date: 2005/05/19 15:52:23 $, $Revision: 1.1.2.2 $ )
+Using dialect: org.hibernate.dialect.MySQLDialect
+Using default transaction strategy (direct JDBC transactions)
+No TransactionManagerLookup configured (in JTA environment, use of read-write or transactional second-level cache is not recommended)
+Automatic flush during beforeCompletion(): disabled
+Automatic session close at end of transaction: disabled
+JDBC batch size: 20
+JDBC batch updates for versioned data: disabled
+Scrollable result sets: enabled
+JDBC3 getGeneratedKeys(): enabled
+Connection release mode: on_close
+Maximum outer join fetch depth: 2
+Default batch fetch size: 1
+Generate SQL with comments: disabled
+Order SQL updates by primary key: disabled
+Query translator: org.hibernate.hql.ast.ASTQueryTranslatorFactory
+Using ASTQueryTranslatorFactory
+Query language substitutions: {}
+Second-level cache: enabled
+Query cache: disabled
+Cache provider: com.agloco.spring.hibernate.OSCacheProvider
+Optimize cache for minimal puts: disabled
+Structured second-level cache entries: disabled
+Statistics: disabled
+Deleted entity synthetic identifier rollback: disabled
+Default entity-mode: pojo
+building session factory
+Not binding factory to JNDI, no JNDI name configured
+Using DataSource [org.apache.tomcat.dbcp.dbcp.BasicDataSource@3b1f38] of Hibernate SessionFactory for HibernateTransactionManager
+CGLIB2 available: proxyTargetClass feature enabled
+configuring from url: file:/E:/Work/AGloCoViewbar/Server/ROOT/WEB-INF/classes/hibernate-viewbar.cfg.xml
+Reading mappings from resource: META-INF/agloco-viewbar.hbm.xml
+Mapping class: com.agloco.model.VBADDTrack -> VB_ADD_Track
+Mapping class: com.agloco.model.VBIpCountry -> VB_Ip_Country
+Mapping class: com.agloco.model.VBADKeywords -> VB_AD_Keywords
+Mapping class: com.agloco.model.VBADMatrix -> VB_AD_Matrix
+Mapping class: com.agloco.model.VBAdvertise -> VB_Advertise
+Mapping class: com.agloco.model.VBADVTrack -> VB_ADV_Track
+Mapping class: com.agloco.model.VBAFDetail -> VB_AF_Detail
+Mapping class: com.agloco.model.VBAffiliate -> VB_Affiliate
+Mapping class: com.agloco.model.VBConfig -> VB_Config
+Mapping class: com.agloco.model.VBFavorite -> VB_Favorite
+Mapping class: com.agloco.model.VBFiles -> VB_Files
+Mapping class: com.agloco.model.VBMOption -> VB_M_Option
+Mapping class: com.agloco.model.VBRule -> VB_Rule
+Mapping class: com.agloco.model.VBSearchEngine -> VB_Search_Engine
+Mapping class: com.agloco.model.VBSearchTrack -> VB_Search_Track
+Mapping class: com.agloco.model.VBSuggestion -> VB_Suggestion
+Mapping class: com.agloco.model.VBTimeSubTotal -> VB_Time_Subtotal
+Mapping class: com.agloco.model.VBTimeTotal -> VB_Time_Total
+Mapping class: com.agloco.model.VBTimeTrack -> VB_Time_Track
+Mapping class: com.agloco.model.VBURLTrack -> VB_URL_Track
+Mapping class: com.agloco.model.VBViewbar -> VB_Viewbar
+Mapping class: com.agloco.log4j.MessageObject -> VB_Log
+Mapping class: com.agloco.model.VBSessionTrack -> VB_Session_Track
+Mapping class: com.agloco.model.VBTools -> VB_Tools
+Mapping class: com.agloco.model.VBToolsPathes -> VB_Tools_Pathes
+Mapping class: com.agloco.model.VBToolsDTrack -> VB_Tools_Track
+Configured SessionFactory: null
+Building new Hibernate SessionFactory
+Initializing connection provider: org.springframework.orm.hibernate3.LocalDataSourceConnectionProvider
+RDBMS: MySQL, version: 4.1.21-community-nt
+JDBC driver: MySQL-AB JDBC Driver, version: mysql-connector-java-3.1.10 ( $Date: 2005/05/19 15:52:23 $, $Revision: 1.1.2.2 $ )
+Using dialect: org.hibernate.dialect.MySQLDialect
+Using default transaction strategy (direct JDBC transactions)
+No TransactionManagerLookup configured (in JTA environment, use of read-write or transactional second-level cache is not recommended)
+Automatic flush during beforeCompletion(): disabled
+Automatic session close at end of transaction: disabled
+JDBC batch size: 20
+JDBC batch updates for versioned data: disabled
+Scrollable result sets: enabled
+JDBC3 getGeneratedKeys(): enabled
+Connection release mode: on_close
+Maximum outer join fetch depth: 2
+Default batch fetch size: 1
+Generate SQL with comments: disabled
+Order SQL updates by primary key: disabled
+Query translator: org.hibernate.hql.ast.ASTQueryTranslatorFactory
+Using ASTQueryTranslatorFactory
+Query language substitutions: {}
+Second-level cache: enabled
+Query cache: disabled
+Cache provider: com.agloco.spring.hibernate.OSCacheProvider
+Optimize cache for minimal puts: disabled
+Structured second-level cache entries: disabled
+Statistics: disabled
+Deleted entity synthetic identifier rollback: disabled
+Default entity-mode: pojo
+building session factory
+Not binding factory to JNDI, no JNDI name configured
+Using DataSource [org.apache.tomcat.dbcp.dbcp.BasicDataSource@130633a] of Hibernate SessionFactory for HibernateTransactionManager
+Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+SQLErrorCodes loaded: [DB2, HSQL, MS-SQL, MySQL, Oracle, Informix, PostgreSQL, Sybase]
+JDBC 3.0 Savepoint class is available

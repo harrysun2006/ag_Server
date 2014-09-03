@@ -1,0 +1,94 @@
+<html>
+<head>
+<title></title>
+<meta http-equiv=Content-Type content="text/html;charset=utf-8">
+<style>
+body{font-family:Verdana;border-style:none;margin-bottom:2px;margin-top:2px;}
+
+
+div.outDiv{
+overflow:hidden;
+width:{[[_PAGE_WIDTH_]]};
+margin-bottom:2px;
+margin-top:0px;
+height:25px;
+}
+
+div.advertise{
+width:{[[_PAGE_WIDTH_]]};
+font-size:12px;
+line-height:12px;
+background-color:#FFFFFF;
+height:25px;
+margin-bottom:0px;
+margin-top:0px;
+}
+
+.r11{color:blue;font:12px Verdana;text-decoration:none; line-height:12px}
+.r11:link{color:blue;font:12px Verdana;text-decoration:underline; line-height:12px}
+.r11:visited{color:blue;font:12px Verdana;text-decoration:underline; line-height:12px}
+.r11:hover{color:blue;font:12px Verdana;text-decoration:underline; line-height:12px}
+
+</style>
+</head>
+
+<body scroll="no" topmargin="0" leftmargin="0"
+	background="{[_BACKGROUND_]}">
+
+<div id="d2" class="outDiv">
+<table bgcolor="#FFFFFF" cellpadding="0" cellspacing="0">
+	<tr>
+		<td id="d21"><nobr>
+		<div id="advertise" class="advertise"></div>
+		</nobr></td>
+	</tr>
+</table>
+</div>
+</body>
+
+<script type="text/javascript">
+	 var ads_default = new Array();
+	 var ads_search = new Array('{[[_VIEWBAR_ADS_SEARCH_]]}');
+	 ads_default.push('<iframe style="text-align: center" align="center" width="906" height="330" frameborder="0" scrolling="auto" src="http://viewbar.agloco.com/ads/wikia.jsp?keywords=nba"></iframe>');
+	 ads_default.push('<iframe style="text-align: center" align="center" width="906" height="330" frameborder="0" scrolling="auto" src="http://viewbar.agloco.com/ads/wikia.jsp?keywords=lenovo"></iframe>');
+	 ads_default.push('<iframe style="text-align: center" align="center" width="906" height="330" frameborder="0" scrolling="auto" src="http://viewbar.agloco.com/ads/wikia.jsp?keywords=cadillac"></iframe>');
+	 ads_default.push('<iframe style="text-align: center" align="center" width="906" height="330" frameborder="0" scrolling="auto" src="http://viewbar.agloco.com/ads/wikia.jsp?keywords=neusoft"></iframe>');
+	 ads_default.push('<iframe style="text-align: center" align="center" width="906" height="330" frameborder="0" scrolling="auto" src="http://viewbar.agloco.com/ads/wikia.jsp?keywords=%E4%B8%AD%E5%9B%BD"></iframe>');
+	 ads_default.push('<iframe style="text-align: center" align="center" width="906" height="330" frameborder="0" scrolling="auto" src="http://viewbar.agloco.com/ads/wikia.jsp?keywords=boeing"></iframe>');
+	 ads_default.push('<iframe style="text-align: center" align="center" width="906" height="330" frameborder="0" scrolling="auto" src="http://viewbar.agloco.com/ads/wikia.jsp?keywords=sony"></iframe>');
+	 ads_default.push('<iframe style="text-align: center" align="center" width="906" height="330" frameborder="0" scrolling="auto" src="http://viewbar.agloco.com/ads/wikia.jsp?keywords=coca-cola"></iframe>');
+	 ads_default.push('<iframe style="text-align: center" align="center" width="906" height="330" frameborder="0" scrolling="auto" src="http://viewbar.agloco.com/ads/wikia.jsp?keywords=%E8%81%94%E6%83%B3"></iframe>');
+	 ads_default.push('<iframe style="text-align: center" align="center" width="906" height="330" frameborder="0" scrolling="auto" src="http://viewbar.agloco.com/ads/wikia.jsp?keywords=motorola"></iframe>');
+	 ads_default.push('<iframe style="text-align: center" align="center" width="906" height="330" frameborder="0" scrolling="auto" src="http://viewbar.agloco.com/ads/wikia.jsp?keywords=Guerlain"></iframe>');
+	 ads_default.push('<iframe style="text-align: center" align="center" width="906" height="330" frameborder="0" scrolling="auto" src="http://viewbar.agloco.com/ads/wikia.jsp?keywords=%E5%A5%A5%E8%BF%90"></iframe>');
+	 ads_default.push('<iframe style="text-align: center" align="center" width="906" height="330" frameborder="0" scrolling="auto" src="http://viewbar.agloco.com/ads/wikia.jsp?keywords=Academie"></iframe>');
+	 ads_default.push('<iframe style="text-align: center" align="center" width="906" height="330" frameborder="0" scrolling="auto" src="http://viewbar.agloco.com/ads/wikia.jsp?keywords=cisco"></iframe>');
+	 ads_default.push('<iframe style="text-align: center" align="center" width="906" height="330" frameborder="0" scrolling="auto" src="http://viewbar.agloco.com/ads/wikia.jsp?keywords=oracle"></iframe>');
+	
+	 var default_index = 0;
+	 var search_index = 0;
+	 var temp_index= 0;
+	 function displayAds(){
+	 	if (ads_search != null && ads_search.length > 0 && ads_search[0] != '{[[_VIEWBAR_' + 'ADS_SEARCH_]]}'){
+	 		setTimeout("displayAds();",60000);
+	 	}else if (ads_default != null){
+	 		setTimeout("displayAds();",30000);
+	 	}
+		if (ads_search != null && ads_search.length > 0 && ads_search[0] != '{[[_VIEWBAR_' + 'ADS_SEARCH_]]}'){
+			search_index = ads_search.length-1;
+			document.getElementById('advertise').innerHTML = ads_search[search_index];
+			ads_search.pop(ads_search[search_index]);
+		}else if( ads_default != null){
+			temp_index=Math.floor(Math.random() * (ads_default.length));
+			if (ads_default.length > 1 && default_index != 0){
+				while (default_index == temp_index){
+					temp_index=Math.floor(Math.random() * (ads_default.length));
+				}
+			}
+			default_index = temp_index;
+			document.getElementById('advertise').innerHTML = ads_default[default_index];
+		}
+	}
+	displayAds();
+ </script>
+</html>

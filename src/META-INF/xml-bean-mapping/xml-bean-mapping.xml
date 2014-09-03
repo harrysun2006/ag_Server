@@ -1,0 +1,608 @@
+<?xml version="1.0"?>
+<!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Mapping DTD Version 1.0//EN"
+                                 "http://castor.org/mapping.dtd">
+<mapping>
+	<description>XML BEAN MAPPING</description>
+	<!-- Mapping template -->
+	<class name="com.agloco.parse.test.RouteBean">
+		<map-to xml="route" />
+		<field name="from">
+			<bind-xml name="from" node="attribute" />
+		</field>
+		<field name="to">
+			<bind-xml name="to" node="attribute" />
+		</field>
+		<field name="flights" collection="collection"
+			type="com.agloco.parse.test.FlightBean">
+			<bind-xml name="flight"/>
+		</field>
+	</class>
+	<class name="com.agloco.parse.test.FlightBean" auto-complete="true">
+		<field name="carrier">
+			<bind-xml name="carrier" node="attribute" />
+		</field>
+		<field name="departureTime">
+			<bind-xml name="depart" node="attribute" />
+		</field>
+		<field name="arrivalTime">
+			<bind-xml name="arrive" node="attribute" />
+		</field>
+	</class>
+	<!-- Mapping template -->
+	
+	<class name="com.agloco.web.service.model.VBReqList">
+		<map-to xml="reqList" />
+		<field name="memberId">
+			<bind-xml name="memberId" node="attribute" />
+		</field>
+		<field name="items" collection="collection"
+			type="java.lang.Object">
+			<bind-xml name="item" />
+		</field>
+	</class>
+	
+	<class name="com.agloco.web.service.model.VBResList">
+		<map-to xml="resList" />
+		<field name="result">
+			<bind-xml name="result" node="attribute" />
+		</field>
+		<field name="items" collection="collection"
+			type="java.lang.Object">
+			<bind-xml name="item" />
+		</field>
+	</class>
+	
+	<class name="com.agloco.web.service.model.ViewbarReq">
+		<map-to xml="viewbarReq" />
+		<field name="viewbarId">
+			<bind-xml name="viewbarId" node="attribute" />
+		</field>
+	</class>
+
+	<class name="com.agloco.web.service.model.VBFileDetailRes">
+		<map-to xml="file" />
+		<field name="fileName">
+			<bind-xml name="name" node="attribute" />
+		</field>
+		<field name="filePath">
+			<bind-xml name="path" node="attribute" />
+		</field>
+		<field name="md5">
+			<bind-xml name="md5" node="attribute" />
+		</field>
+		<field name="fileVersion">
+			<bind-xml name="version" node="attribute" />
+		</field>
+	</class>
+	<class name="com.agloco.web.service.model.VBUpdateFilesRes">
+		<field name="viewbarId">
+			<bind-xml name="viewbarId" node="attribute" />
+		</field>
+		<field name="result">
+			<bind-xml name="result" node="attribute" />
+		</field>
+		<field name="rootPath">
+			<bind-xml name="rootPath" node="attribute" />
+		</field>
+		<field name="filesList" collection="collection"
+			type="com.agloco.web.service.model.VBFileDetailRes">
+			<bind-xml name="file" />
+		</field>
+	</class>
+	<class name="com.agloco.web.service.model.VBFavoriteRes">
+		<field name="name">
+			<bind-xml name="name" node="attribute" />
+		</field>
+		<field name="url">
+			<bind-xml name="url" node="attribute" />
+		</field>
+	</class>
+	<class name="com.agloco.web.service.model.VBFavoriteListRes">
+		<field name="result">
+			<bind-xml name="result" node="attribute" />
+		</field>
+		<field name="items" collection="collection"
+			type="com.agloco.web.service.model.VBFavoriteRes">
+			<bind-xml name="favorite" />
+		</field>
+	</class>
+	<class name="com.agloco.web.service.model.VBPerformanceRes">
+		<field name="name">
+			<bind-xml name="name" node="attribute" />
+		</field>
+		<field name="value">
+			<bind-xml name="value" node="attribute" />
+		</field>
+		<field name="currentValue">
+			<bind-xml name="currentValue" node="attribute" />
+		</field>
+		<field name="operator">
+			<bind-xml name="operator" node="attribute" />
+		</field>
+	</class>
+	<class name="com.agloco.web.service.model.VBPerformanceListRes">
+		<map-to xml="vbPerformanceListRes" />
+		<field name="result">
+			<bind-xml name="result" node="attribute" />
+		</field>
+		<field name="nextTime">
+			<bind-xml name="nextTime" node="attribute" />
+		</field>
+		<field name="items" collection="collection"
+			type="com.agloco.web.service.model.VBPerformanceRes">
+			<bind-xml name="performance" />
+		</field>
+	</class>
+	<class name="com.agloco.web.service.model.ViewbarCheckRes">
+		<map-to xml="latestViewbar" />
+		<field name="result">
+			<bind-xml name="result" node="attribute" />
+		</field>
+		<field name="latestViewbarId">
+			<bind-xml name="latestViewbarId" node="attribute" />
+		</field>
+		<field name="forceUpdate">
+			<bind-xml name="forceUpdate" node="attribute" />
+		</field>
+	</class>
+	<class name="com.agloco.web.service.model.DownloadReq">
+		<map-to xml="downloadReq" />
+		<field name="viewbarId">
+			<bind-xml name="viewbarId" node="attribute" />
+		</field>
+		<field name="operate">
+			<bind-xml name="operate" node="attribute" />
+		</field>
+	</class>
+
+	<class name="com.agloco.web.service.model.MOptionRes">
+		<field name="memberId">
+			<bind-xml name="memberId" node="attribute" />
+		</field>
+		<field name="name">
+			<bind-xml name="name" node="attribute" />
+		</field>
+		<field name="value">
+			<bind-xml name="value" node="attribute" />
+		</field>
+	</class>
+
+	<class name="com.agloco.web.service.model.MOptionListRes">
+		<field name="result">
+			<bind-xml name="result" node="attribute" />
+		</field>
+		<field name="items" collection="collection"
+			type="com.agloco.web.service.model.MOptionRes">
+			<bind-xml name="option" />
+		</field>
+	</class>
+
+	<class name="com.agloco.web.service.model.MOptionReq">
+		<field name="memberId">
+			<bind-xml name="memberId" node="attribute" />
+		</field>
+		<field name="name">
+			<bind-xml name="name" node="attribute" />
+		</field>
+		<field name="value">
+			<bind-xml name="value" node="attribute" />
+		</field>
+	</class>
+	
+	<!-- Surf Track -->
+	<class name="com.agloco.web.service.model.URLTrackListReq">
+		<map-to xml="urlList" />
+		<field name="memberId">
+			<bind-xml name="memberId" node="attribute" />
+		</field>
+		<field name="items" collection="collection"
+			type="com.agloco.web.service.model.URLTrack">
+			<bind-xml name="item" />
+		</field>
+	</class>
+	<class name="com.agloco.web.service.model.TimeTrackListReq">
+		<map-to xml="timeList" />
+		<field name="memberId">
+			<bind-xml name="memberId" node="attribute" />
+		</field>
+		<field name="submitId">
+			<bind-xml name="submitId" node="attribute" />
+		</field>
+		<field name="items" collection="collection"
+			type="com.agloco.web.service.model.TimeTrack">
+			<bind-xml name="item" />
+		</field>
+	</class>
+
+	<class name="com.agloco.web.service.model.URLTrackRes" auto-complete="true">
+		<map-to xml="urlRes" />
+		<field name="result">
+			<bind-xml name="result" node="attribute" />
+		</field>
+		<field name="nextTime">
+			<bind-xml name="nextTime" node="attribute" />
+		</field>
+	</class>
+	<class name="com.agloco.web.service.model.TimeTrackRes" auto-complete="true">
+		<map-to xml="timeRes" />
+		<field name="result">
+			<bind-xml name="result" node="attribute" />
+		</field>
+		<field name="submitId">
+			<bind-xml name="submitId" node="attribute" />
+		</field>
+		<field name="nextTime">
+			<bind-xml name="nextTime" node="attribute" />
+		</field>
+	</class>
+	<class name="com.agloco.web.service.model.TimeTrack" auto-complete="true">
+		<map-to xml="timeTrack" />
+		<field name="beginPoint">
+			<bind-xml name="beginPoint" node="attribute" />
+		</field>
+		<field name="endPoint">
+			<bind-xml name="endPoint" node="attribute" />
+		</field>
+		<field name="point">
+			<bind-xml name="point" node="attribute" />
+		</field>
+		<field name="status">
+			<bind-xml name="status" node="attribute" />
+		</field>
+	</class>
+	<class name="com.agloco.web.service.model.URLTrack" auto-complete="true">
+		<map-to xml="urlTrack" />
+		<field name="domainName">
+			<bind-xml name="domainName" node="attribute" />
+		</field>
+		<field name="completeURL">
+			<bind-xml name="completeURL" node="attribute" />
+		</field>
+		<field name="title">
+			<bind-xml name="title" node="attribute" />
+		</field>
+		<field name="keywords">
+			<bind-xml name="keywords" node="attribute" />
+		</field>
+		<field name="errorDescription">
+			<bind-xml name="errorDescription" node="attribute" />
+		</field>
+		<field name="errorStatus">
+			<bind-xml name="errorStatus" node="attribute" />
+		</field>
+		<field name="browser">
+			<bind-xml name="browser" node="attribute" />
+		</field>
+		<field name="description">
+			<bind-xml name="description" node="attribute" />
+		</field>
+	</class>
+	
+	<!-- login -->
+	<class name="com.agloco.web.service.model.LoginReq" auto-complete="true">
+		<map-to xml="loginReq" />
+		<field name="userName">
+			<bind-xml name="userName" node="attribute" />
+		</field>
+		<field name="password">
+			<bind-xml name="password" node="attribute" />
+		</field>
+		<field name="viewbarId">
+			<bind-xml name="viewbarId" node="attribute" />
+		</field>
+		<field name="searchEngineHash">
+			<bind-xml name="searchEngineHash" node="attribute" />
+		</field>
+		<field name="favoriteHash">
+			<bind-xml name="favoriteHash" node="attribute" />
+		</field>
+		<field name="ipAddr">
+			<bind-xml name="ipAddr" node="attribute" />
+		</field>
+		<field name="macAddr">
+			<bind-xml name="macAddr" node="attribute" />
+		</field>
+		<field name="computerName">
+			<bind-xml name="computerName" node="attribute" />
+		</field>
+		<field name="domainName">
+			<bind-xml name="domainName" node="attribute" />
+		</field>
+		<field name="osVersion">
+			<bind-xml name="osVersion" node="attribute" />
+		</field>
+	</class>
+	
+	<class name="com.agloco.web.service.model.LoginRes" auto-complete="true">
+		<map-to xml="loginRes" />
+		<field name="result">
+			<bind-xml name="result" node="attribute" />
+		</field>
+		<field name="memberId">
+			<bind-xml name="memberId" node="attribute" />
+		</field>
+		<field name="serverTime">
+			<bind-xml name="serverTime" node="attribute" />
+		</field>
+		<field name="nextSubmitTime">
+			<bind-xml name="nextSubmitTime" node="attribute" />
+		</field>
+		<field name="favorites" collection="collection" type="java.util.ArrayList">
+			<bind-xml name="favorites" type="com.agloco.web.service.model.Favorite"/>
+		</field>
+		<field name="engines" collection="collection" type="java.util.ArrayList">
+			<bind-xml name="engines" type="com.agloco.web.service.model.Engine"/>
+		</field>
+		<field name="adsBaseName">
+			<bind-xml name="ads-basename" node="attribute" />
+		</field>
+		<field name="adsJsName">
+			<bind-xml name="ads-jsname" node="attribute" />
+		</field>
+	</class>
+	
+	<class name="com.agloco.web.service.model.Favorite" auto-complete="true">
+		<map-to xml="favorite" />
+		<field name="favoriteId">
+			<bind-xml name="favoriteId" node="attribute" />
+		</field>
+		<field name="name">
+			<bind-xml name="name" node="attribute" />
+		</field>
+		<field name="url">
+			<bind-xml name="url" node="attribute" />
+		</field>
+		<field name="category">
+			<bind-xml name="category" node="attribute" />
+		</field>
+	</class>
+	
+	<class name="com.agloco.web.service.model.Engine" auto-complete="true">
+		<map-to xml="engine" />
+		<field name="engineId">
+			<bind-xml name="engineId" node="attribute" />
+		</field>
+		<field name="name">
+			<bind-xml name="name" node="attribute" />
+		</field>
+		<field name="url">
+			<bind-xml name="url" node="attribute" />
+		</field>
+		<field name="pattern">
+			<bind-xml name="pattern" node="attribute" />
+		</field>
+	</class>
+	
+	<!-- logout -->
+	<class name="com.agloco.web.service.model.LogoutReq" auto-complete="true">
+		<map-to xml="logoutReq" />
+		<field name="memberId">
+			<bind-xml name="memberId" node="attribute" />
+		</field>
+		<field name="viewbarId">
+			<bind-xml name="viewbarId" node="attribute" />
+		</field>
+		<field name="ipAddr">
+			<bind-xml name="ipAddr" node="attribute" />
+		</field>
+		<field name="macAddr">
+			<bind-xml name="macAddr" node="attribute" />
+		</field>
+		<field name="computerName">
+			<bind-xml name="computerName" node="attribute" />
+		</field>
+		<field name="domainName">
+			<bind-xml name="domainName" node="attribute" />
+		</field>
+		<field name="osVersion">
+			<bind-xml name="osVersion" node="attribute" />
+		</field>
+	</class>
+	<class name="com.agloco.web.service.model.LogoutRes" auto-complete="true">
+		<map-to xml="logoutRes" />
+		<field name="result">
+			<bind-xml name="result" node="attribute" />
+		</field>
+	</class>
+	
+	<!-- search keywords -->
+	<class name="com.agloco.web.service.model.SearchKeywordReq" auto-complete="true">
+		<map-to xml="searchKeywordReq" />
+		<field name="memberId">
+			<bind-xml name="memberId" node="attribute" />
+		</field>
+		<field name="searchEngineId">
+			<bind-xml name="searchEngineId" node="attribute" />
+		</field>
+		<field name="browser">
+			<bind-xml name="browser" node="attribute" />
+		</field>
+		<field name="needAdvertise">
+			<bind-xml name="needAdvertise" node="attribute" />
+		</field>
+		<field name="keywords" collection="array" type="java.lang.String">
+			<bind-xml name="keywords" />
+		</field>
+	</class>
+	<class name="com.agloco.web.service.model.SearchKeywordRes" auto-complete="true">
+		<map-to xml="searchKeywordRes" />
+		<field name="result">
+			<bind-xml name="result" node="attribute" />
+		</field>
+		<field name="advertises" collection="collection" type="java.util.ArrayList">
+			<bind-xml name="advertises" type="com.agloco.web.service.model.Advertise"/>
+		</field>
+		<field name="keywordsList" type="com.agloco.web.service.model.AdKeywordsList">
+			<bind-xml name="keywordsList"/>
+		</field>
+		<field name="matrixList" type="com.agloco.web.service.model.AdMatrixList">
+			<bind-xml name="matrixList"/>
+		</field>
+	</class>
+	
+	<class name="com.agloco.web.service.model.AdKeywordsList" auto-complete="true">
+		<map-to xml="kyList" />
+		<field name="keywordList" collection="arraylist" type="com.agloco.web.service.model.AdKeywords">
+			<bind-xml name="keyword" />
+		</field>
+	</class>
+	<class name="com.agloco.web.service.model.AdMatrixList" auto-complete="true">
+		<map-to xml="mtList" />
+		<field name="matrixList" collection="arraylist" type="com.agloco.web.service.model.AdMatrix">
+			<bind-xml name="matrix" />
+		</field>
+	</class>
+	
+	<class name="com.agloco.web.service.model.Advertise" auto-complete="true">
+		<map-to xml="advertise" />
+		<field name="adId">
+			<bind-xml name="adId" node="attribute" />
+		</field>
+		<field name="adCategory">
+			<bind-xml name="adCategory" node="attribute" />
+		</field>
+		<field name="adType">
+			<bind-xml name="adType" node="attribute" />
+		</field>
+		<field name="adBanner">
+			<bind-xml name="adBanner" node="attribute" />
+		</field>
+		<field name="adContent">
+			<bind-xml name="adContent" node="attribute" />
+		</field>
+		<field name="adDescription">
+			<bind-xml name="adDescription" node="attribute" />
+		</field>
+	</class>
+	
+	<class name="com.agloco.web.service.model.AdMatrix" auto-complete="true">
+		<map-to xml="adMatrix" />
+		<field name="adKeywordId">
+			<bind-xml name="adKeywordId" node="attribute" />
+		</field>
+		<field name="adId">
+			<bind-xml name="adId" node="attribute" />
+		</field>
+		<field name="weight">
+			<bind-xml name="weight" node="attribute" />
+		</field>
+	</class>
+	
+	<class name="com.agloco.web.service.model.AdKeywords" auto-complete="true">
+		<map-to xml="adKeywords" />
+		<field name="adKeywordId">
+			<bind-xml name="adKeywordId" node="attribute" />
+		</field>
+		<field name="content">
+			<bind-xml name="content" node="attribute" />
+		</field>
+	</class>
+	
+	<!-- visit advertise -->
+	<class name="com.agloco.web.service.model.VisitAdvertiseReq" auto-complete="true">
+		<map-to xml="visitAdvertiseReq" />
+		<field name="memberId">
+			<bind-xml name="memberId" node="attribute" />
+		</field>
+		<field name="viewbarId">
+			<bind-xml name="viewbarId" node="attribute" />
+		</field>
+		<field name="advertiseId" collection="array" type="java.lang.Long">
+			<bind-xml name="advertiseId" />
+		</field>
+	</class>
+	<class name="com.agloco.web.service.model.VisitAdvertiseRes" auto-complete="true">
+		<map-to xml="visitAdvertiseRes" />
+		<field name="result">
+			<bind-xml name="result" node="attribute" />
+		</field>
+	</class>
+	
+	<!-- Affiliate -->
+	<class name="com.agloco.web.service.model.AffiliateReq" auto-complete="true">
+		<map-to xml="affiliateReq" />
+		<field name="afTime">
+			<bind-xml name="afTime" node="attribute" />
+		</field>
+		<field name="afdTime">
+			<bind-xml name="afdTime" node="attribute" />
+		</field>
+	</class>
+	<class name="com.agloco.web.service.model.Affiliate" auto-complete="true">
+		<map-to xml="affiliate" />
+		<field name="affiliateId">
+			<bind-xml name="affiliateId" node="attribute" />
+		</field>
+		<field name="name">
+			<bind-xml name="name" node="attribute" />
+		</field>
+		<field name="createDate">
+			<bind-xml name="createDate" node="attribute" />
+		</field>
+		<field name="category">
+			<bind-xml name="category" node="attribute" />
+		</field>
+	</class>
+	<class name="com.agloco.web.service.model.AffiliateDetail" auto-complete="true">
+		<map-to xml="afDetail" />
+		<field name="afDetailId">
+			<bind-xml name="afDetailId" node="attribute" />
+		</field>
+		<field name="affiliateId">
+			<bind-xml name="affiliateId" node="attribute" />
+		</field>
+		<field name="createDate">
+			<bind-xml name="createDate" node="attribute" />
+		</field>
+		<field name="pattern">
+			<bind-xml name="pattern" node="attribute" />
+		</field>
+		<field name="agPattern">
+			<bind-xml name="agPattern" node="attribute" />
+		</field>
+		<field name="category">
+			<bind-xml name="category" node="attribute" />
+		</field>
+		<field name="rebate">
+			<bind-xml name="rebate" node="attribute" />
+		</field>
+		<field name="status">
+			<bind-xml name="status" node="attribute" />
+		</field>
+		<field name="info">
+			<bind-xml name="info" node="attribute" />
+		</field>
+		<field name="description">
+			<bind-xml name="description" node="attribute" />
+		</field>
+	</class>
+	<class name="com.agloco.web.service.model.AffiliateRes" auto-complete="true">
+		<map-to xml="affiliateRes" />
+		<field name="result">
+			<bind-xml name="result" node="attribute" />
+		</field>
+		<field name="affiliates" >
+			<bind-xml name="affiliates" type="com.agloco.web.service.model.AffiliateList"/>
+		</field>
+		<field name="afDetails">
+			<bind-xml name="afDetails" type="com.agloco.web.service.model.AffiliateDetailList"/>
+		</field>
+	</class>
+	<class name="com.agloco.web.service.model.AffiliateList" auto-complete="true">
+		<map-to xml="affiliates" />
+		<field name="affiliates" collection="collection"
+			type="com.agloco.web.service.model.Affiliate">
+			<bind-xml name="affiliate"/>
+		</field>
+	</class>
+	<class name="com.agloco.web.service.model.AffiliateDetailList" auto-complete="true">
+		<map-to xml="afDetails" />
+		<field name="afDetails" collection="collection"
+			type="com.agloco.web.service.model.AffiliateDetail">
+			<bind-xml name="afDetail"/>
+		</field>
+	</class>
+
+	
+	
+</mapping>

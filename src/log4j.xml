@@ -1,0 +1,271 @@
+<?xml version="1.0"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<appender name="ALL"
+		class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="${catalina.home}/logs/all/vb_all.log" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%d{z(Z) yyyy-MM-dd HH:mm:ss}[%c] -- %p -- %m%n" />
+		</layout>
+	</appender>
+	
+	<appender name="STDOUT"
+		class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%d{z(Z) yyyy-MM-dd HH:mm:ss}[%c] -- %p -- %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="ERROR"
+		class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="${catalina.home}/logs/error/vb_error.log" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%d{z(Z) yyyy-MM-dd HH:mm:ss}[%c] -- %p -- %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMin" value="ERROR" />
+			<param name="LevelMax" value="ERROR" />
+		</filter>
+	</appender>
+
+	<appender name="UPDATE"
+		class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="${catalina.home}/logs/update/vb_update.log" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="'.'yyyy-MM"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%d{z(Z) yyyy-MM-dd HH:mm:ss}[%c] -- %p -- %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMin" value="INFO" />
+			<param name="LevelMax" value="INFO" />
+		</filter>
+	</appender>
+
+	<appender name="LOGLOG"
+		class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="${catalina.home}/logs/log/log.log" />
+		<param name="Append" value="true" />
+		<param name="MaxFileSize" value="50MB" />
+		<param name="maxBackupIndex" value="100" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%d{z(Z) yyyy-MM-dd HH:mm:ss}[%c] -- %p -- %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="DB"
+		class="com.agloco.log4j.DailyDBAppender">
+		<param name="messageModelClass" value="com.agloco.log4j.MessageObject" />
+		<param name="DatePattern" value="'_'yyyyMMdd"/>
+		<param name="tableName" value="VB_Log"/>
+		<param name="mustMsgModel" value="true"/>
+	</appender>
+
+	<appender name="NOOP" class="org.apache.log4j.varia.NullAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} %C %M[%L]%n%-5p: %m%n"/>
+		</layout>
+	</appender>
+
+	<appender name="Filter"
+		class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="${catalina.home}/logs/filter/vb_filter.log" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%d{z(Z) yyyy-MM-dd HH:mm:ss}[%c] -- %p -- %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMin" value="DEBUG" />
+			<param name="LevelMax" value="ERROR" />
+		</filter>
+	</appender>
+
+	<appender name="WebService"
+		class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="${catalina.home}/logs/ws/vb_webservice.log" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%d{z(Z) yyyy-MM-dd HH:mm:ss}[%c] -- %p -- %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMin" value="DEBUG" />
+			<param name="LevelMax" value="ERROR" />
+		</filter>
+	</appender>
+
+	<category name="com.germinus.easyconf">
+		<priority value="ERROR" />
+	</category>
+
+	<category name="com.opensymphony.oscache">
+		<priority value="ERROR" />
+	</category>
+
+	<category name="com.opensymphony.oscache.plugins.clustersupport.JavaGroupsBroadcastingListener">
+		<priority value="ERROR" />
+	</category>
+
+	<category name="com.sun.faces">
+		<priority value="ERROR" />
+	</category>
+
+	<category name="de.nava.informa">
+		<priority value="ERROR" />
+	</category>
+
+	<category name="httpclient.wire">
+		<priority value="ERROR" />
+	</category>
+
+	<category name="net.sf.hibernate">
+		<priority value="WARN" />
+	</category>
+
+	<category name="org.apache">
+		<priority value="INFO" />
+	</category>
+
+	<category name="org.apache.axis">
+		<priority value="INFO" />
+	</category>
+
+	<category name="org.apache.commons.digester">
+		<priority value="ERROR" />
+	</category>
+
+	<category name="org.apache.commons.beanutils">
+		<priority value="ERROR" />
+	</category>
+
+	<category name="org.apache.commons.fileupload">
+		<priority value="ERROR" />
+	</category>
+
+	<category name="org.apache.commons.httpclient">
+		<priority value="ERROR" />
+	</category>
+
+	<category name="org.apache.commons.validator">
+		<priority value="ERROR" />
+	</category>
+
+	<category name="org.apache.jackrabbit">
+		<priority value="ERROR" />
+	</category>
+
+	<category name="org.apache.myfaces">
+		<priority value="ERROR" />
+	</category>
+
+	<category name="org.apache.struts">
+		<priority value="ERROR" />
+	</category>
+
+	<category name="org.apache.velocity">
+		<priority value="ERROR" />
+	</category>
+
+	<category name="org.apache.wsrp4j">
+		<priority value="ERROR" />
+	</category>
+
+	<category name="org.hibernate">
+		<priority value="WARN" />
+	</category>
+
+	<category name="org.hibernate.cfg.Configuration">
+		<priority value="INFO" />
+	</category>
+
+	<category name="org.jgroups">
+		<priority value="ERROR" />
+	</category>
+
+	<category name="org.quartz">
+		<priority value="ERROR" />
+	</category>
+
+	<category name="org.pdfbox">
+		<priority value="INFO" />
+	</category>
+
+	<category name="org.springframework">
+		<priority value="ERROR" />
+	</category>
+	
+	<category name="uk.ltd.getahead.dwr">
+		<priority value="ERROR" />
+	</category>
+	
+	<category name="org.exolab.castor">
+		<priority value="ERROR" />
+	</category>
+
+	<category name="com.agloco.log4j">
+		<priority value="INFO" />
+		<appender-ref ref="LOGLOG"/>
+	</category>
+	<category name="com.agloco.web.service.AutoUpdateService">
+		<priority value="INFO" />
+		<appender-ref ref="UPDATE"/>
+	</category>
+	<category name="com.agloco.web.service.DownloadCountService">
+		<priority value="INFO" />
+		<appender-ref ref="UPDATE"/>
+	</category>
+
+	<category name="com.agloco.web.service.LoginService">
+		<priority value="INFO" />
+		<appender-ref ref="DB"/>
+	</category>
+	<category name="com.agloco.web.service.AutoLoginService">
+		<priority value="INFO" />
+		<appender-ref ref="DB"/>
+	</category>
+	<category name="com.agloco.web.service.LogoutService">
+		<priority value="INFO" />
+		<appender-ref ref="DB"/>
+	</category>
+
+	<category name="com.agloco.web.filter.SecurityFilter">
+		<priority value="INFO" />
+		<appender-ref ref="Filter"/>
+	</category>
+
+	<category name="com.agloco.web.service.TimeTrackService">
+		<priority value="INFO" />
+		<appender-ref ref="WebService"/>
+	</category>
+
+	<category name="com.agloco.web.service.PerformanceService">
+		<priority value="INFO" />
+		<appender-ref ref="WebService"/>
+	</category>
+	
+	<category name="com.agloco.web.service.ViewbarCheckService">
+		<priority value="ERROR" />
+		<appender-ref ref="WebService"/>
+	</category>
+	
+	<root>
+		<priority value="INFO" />
+		<appender-ref ref="ALL" />
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="ERROR" />
+	</root>
+</log4j:configuration>
